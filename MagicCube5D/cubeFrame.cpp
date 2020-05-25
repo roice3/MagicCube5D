@@ -8,6 +8,7 @@
 #include "workFiles/selector.h"
 
 using namespace System::Drawing;
+using namespace System::Windows::Forms;
 
 namespace MagicCube5D
 {
@@ -517,10 +518,10 @@ void
 CubeFrame::showSolvedMessage()
 {
 	String ^ text = "Congratulations!  You have achieved ultimate super-nerd status.\n\n"
-		"Take a few moments and space-out on the ridiculousness of what you have just accomplished, then\n"
+		"Take a few moments and space-out on the ridiculousness of what you have just accomplished, then "
 		"send your logfile to roice@gravitation3d.com to get your name listed in the MagicCube5D Hall of Insanity.";
 	String ^ caption = "MagicCube5D Conquered!";
-	System::Windows::Forms::MessageBox::Show( text, caption );
+	MessageBox::Show( text, caption, MessageBoxButtons::OK, MessageBoxIcon::Exclamation );
 }
 
 void 

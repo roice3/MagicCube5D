@@ -173,7 +173,7 @@ CStateTransformer::getCubie( int stickerInt, const CVector5D & face, CVector5D &
 
 namespace
 {
-	int round( double val )
+	int roundDoubleToInt( double val )
 	{
 		// Get the fractional part.
 		double fraction = val - (int)val;
@@ -194,10 +194,10 @@ CStateTransformer::getStickerInt( const CVector5D & cubie, const CVector5D & fac
 
 	int num = m_settings.m_n;
 	int stickerInt = (int)( 
-		round( ( cubie.m_components[axis1] + 1 ) / increment ) * pow( (double)num, 0 ) + 
-		round( ( cubie.m_components[axis2] + 1 ) / increment ) * pow( (double)num, 1 ) + 
-		round( ( cubie.m_components[axis3] + 1 ) / increment ) * pow( (double)num, 2 ) + 
-		round( ( cubie.m_components[axis4] + 1 ) / increment ) * pow( (double)num, 3 ) );
+		roundDoubleToInt ( ( cubie.m_components[axis1] + 1 ) / increment ) * pow( (double)num, 0 ) +
+		roundDoubleToInt ( ( cubie.m_components[axis2] + 1 ) / increment ) * pow( (double)num, 1 ) +
+		roundDoubleToInt ( ( cubie.m_components[axis3] + 1 ) / increment ) * pow( (double)num, 2 ) +
+		roundDoubleToInt ( ( cubie.m_components[axis4] + 1 ) / increment ) * pow( (double)num, 3 ) );
 	return( stickerInt );
 }
 
