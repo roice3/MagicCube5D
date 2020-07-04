@@ -14,6 +14,7 @@ CCube5D::CCube5D() : m_transformer( m_settings )
 	m_solvedMessageShown = false;
 	m_currentlyRecording = false;
 	m_useStereoColor = false;
+	m_scrambled = false;
 
 	// Setup default settings.
 	m_settings.setAllVisible();
@@ -574,14 +575,14 @@ CCube5D::save( bool saveas )
 {
 	StateMatrix state;
 	m_transformer.stickersToMatrix( m_stickers, state );
-	m_loader.saveToFile( state, m_twists, saveas );
+	m_loader.saveToFile( state, m_twists, saveas, m_scrambled );
 }
 
 void 
 CCube5D::load() 
 {
 	StateMatrix state;
-	if( !m_loader.loadFromFile( state, m_twists ) )
+	if( !m_loader.loadFromFile( state, m_twists, &m_scrambled ) )
 		return;
 
 	// Use the loaded state to determine our puzzle type.
@@ -687,6 +688,8 @@ CCube5D::selectStickerHelper( const CVector3D & linep1, const CVector3D & linep2
 void 
 CCube5D::scramble( int numTwists ) 
 {
+	m_scrambled = numTwists >= 100;
+
 	// XXX - a little hackish, since I'm checking a hardcoded value of a full scramble
 	if( m_settings.m_n > 5 && 100 == numTwists )
 		numTwists *= 2;
@@ -785,6 +788,10 @@ CCube5D::isSolved() const
 bool 
 CCube5D::showSolvedMessage()
 {
+	// We only want to show the message if an actual scramble occurred.
+	if ( !m_scrambled )
+		return false;
+
 	// We only want to show a message once.
 	if( m_solvedMessageShown )
 		return false;

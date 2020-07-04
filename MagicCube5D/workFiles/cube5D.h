@@ -230,6 +230,9 @@ private:
 
 	// Solved info.
 	SSolvedInfo m_solvedInfo;
+
+	// Whether or not a full scramble occurred.
+	bool m_scrambled;
 };
 
 #pragma managed(pop)

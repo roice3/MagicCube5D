@@ -10,8 +10,8 @@ public:
 	CLoader();
 
 	// Save/Load the entire puzzle.
-	void saveToFile( const StateMatrix & state, const std::vector<STwist> & twists, bool saveas );
-	bool loadFromFile( StateMatrix & state, std::vector<STwist> & twists );
+	void saveToFile( const StateMatrix & state, const std::vector<STwist> & twists, bool saveas, bool scrambled = false );
+	bool loadFromFile( StateMatrix & state, std::vector<STwist> & twists, bool * scrambled = NULL );
 
 	// Save/Load macros.
 	void saveMacrosToFile( const std::vector<SMacro> & macros );
