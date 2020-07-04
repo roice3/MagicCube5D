@@ -8,6 +8,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magicCubeGui", "MagicCubeGui\magicCubeGui.csproj", "{6B1A6B1E-6AD5-442D-A27D-7D4EADF1B8A9}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MagicCube5DInstall", "MagicCube5DInstall\MagicCube5DInstall.vdproj", "{2CF97636-4376-4821-B740-B9FDB146FBC0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED8D6677-7EA6-4594-A4E6-3AFB6FA9F390}"
+	ProjectSection(SolutionItems) = preProject
+		.clang-format = .clang-format
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
