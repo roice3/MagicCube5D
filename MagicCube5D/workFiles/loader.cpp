@@ -15,7 +15,7 @@ CLoader::CLoader()
 }
 
 void 
-CLoader::saveToFile( const StateMatrix & state, const std::vector<STwist> & twists, bool saveas ) 
+CLoader::saveToFile( const StateMatrix & state, const std::vector<STwist> & twists, bool saveas, bool scrambled ) 
 {
 	// Get the filename to save to.
 	String ^ fileName = getSaveFileName( saveas );
@@ -26,6 +26,11 @@ CLoader::saveToFile( const StateMatrix & state, const std::vector<STwist> & twis
 
 	// Write the header.
 	String ^ header = "MagicCube5D\t" + VERSION_STRING + "\t" + System::Convert::ToString( twists.size() );
+
+	// Append a simple "s" if the cube has been scrambled.
+	if (scrambled)
+		header += "\ts";
+
 	sw->WriteLine( header );
 
 	// Now write out the state.
@@ -46,7 +51,7 @@ CLoader::saveToFile( const StateMatrix & state, const std::vector<STwist> & twis
 }
 
 bool 
-CLoader::loadFromFile( StateMatrix & state, std::vector<STwist> & twists ) 
+CLoader::loadFromFile( StateMatrix & state, std::vector<STwist> & twists, bool * scrambled ) 
 {
 	String ^ fileName = getLoadFileName();
 	if( ! File::Exists( fileName ) )
@@ -76,6 +81,9 @@ CLoader::loadFromFile( StateMatrix & state, std::vector<STwist> & twists )
 	myEnum->MoveNext();
 	tempString = safe_cast<String ^>( myEnum->Current );
 	int numTwists = System::Convert::ToInt32( tempString );
+
+	if (scrambled != NULL)
+		*scrambled = split->Length >= 4 && split[3]->Equals("s");
 
 	// Now read the state.
 	state.resize( 10 );

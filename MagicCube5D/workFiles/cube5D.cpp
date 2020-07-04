@@ -575,14 +575,14 @@ CCube5D::save( bool saveas )
 {
 	StateMatrix state;
 	m_transformer.stickersToMatrix( m_stickers, state );
-	m_loader.saveToFile( state, m_twists, saveas );
+	m_loader.saveToFile( state, m_twists, saveas, m_scrambled );
 }
 
 void 
 CCube5D::load() 
 {
 	StateMatrix state;
-	if( !m_loader.loadFromFile( state, m_twists ) )
+	if( !m_loader.loadFromFile( state, m_twists, &m_scrambled ) )
 		return;
 
 	// Use the loaded state to determine our puzzle type.
