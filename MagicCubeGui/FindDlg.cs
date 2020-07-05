@@ -91,7 +91,6 @@ namespace MagicCube5D
             if (index == -1 && box.SelectedItem == null)
                 return;
 
-            var selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
             var focused = (e.State & DrawItemState.Focus) == DrawItemState.Focus;
 
             e.DrawBackground();
