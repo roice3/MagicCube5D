@@ -1,25 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Reflection;
-
 namespace MagicCube5D
 {
-	class PersistableBase
-	{
-		public virtual void Save( string file )
-		{
-			// write all of our props
-			StreamWriter outFile = new StreamWriter( File.OpenWrite( file ) );
-			foreach( PropertyDescriptor p in this.PersistProps )
-			{
-				object value = p.GetValue( this );
-				TypeConverter tc = TypeDescriptor.GetConverter( value );
-				outFile.WriteLine( "{0}={1}", p.Name, tc.ConvertToString( value ) );
-			}
-			outFile.Close();
-		}
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.IO;
+
+    class PersistableBase
+    {
+        private PropertyDescriptorCollection PersistProps
+        {
+            get { return TypeDescriptor.GetProperties(this, new Attribute[] { new PersistableAttribute() }); }
+        }
 
 		public virtual void Load( string file )
 		{
