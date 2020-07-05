@@ -223,48 +223,56 @@ namespace MagicCube5D
 
         private void fillBox2()
         {
-            var used = new List<int>();
-            used.Add((int)colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
+            var used = new List<int>
+            {
+                (int)colorBox1.SelectedItem,
+                findOppositeFace((int)colorBox1.SelectedItem)
+            };
             fillBoxHelper(used, colorBox2);
             updateEnabled();
         }
 
         private void fillBox3()
         {
-            var used = new List<int>();
-            used.Add((int)colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
-            used.Add((int)colorBox2.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox2.SelectedItem));
+            var used = new List<int>
+            {
+                (int)colorBox1.SelectedItem,
+                findOppositeFace((int)colorBox1.SelectedItem),
+                (int)colorBox2.SelectedItem,
+                findOppositeFace((int)colorBox2.SelectedItem)
+            };
             fillBoxHelper(used, colorBox3);
             updateEnabled();
         }
 
         private void fillBox4()
         {
-            var used = new List<int>();
-            used.Add((int)colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
-            used.Add((int)colorBox2.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox2.SelectedItem));
-            used.Add((int)colorBox3.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox3.SelectedItem));
+            var used = new List<int>
+            {
+                (int)colorBox1.SelectedItem,
+                findOppositeFace((int)colorBox1.SelectedItem),
+                (int)colorBox2.SelectedItem,
+                findOppositeFace((int)colorBox2.SelectedItem),
+                (int)colorBox3.SelectedItem,
+                findOppositeFace((int)colorBox3.SelectedItem)
+            };
             fillBoxHelper(used, colorBox4);
             updateEnabled();
         }
 
         private void fillBox5()
         {
-            var used = new List<int>();
-            used.Add((int)colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
-            used.Add((int)colorBox2.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox2.SelectedItem));
-            used.Add((int)colorBox3.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox3.SelectedItem));
-            used.Add((int)colorBox4.SelectedItem);
-            used.Add(findOppositeFace((int)colorBox4.SelectedItem));
+            var used = new List<int>
+            {
+                (int)colorBox1.SelectedItem,
+                findOppositeFace((int)colorBox1.SelectedItem),
+                (int)colorBox2.SelectedItem,
+                findOppositeFace((int)colorBox2.SelectedItem),
+                (int)colorBox3.SelectedItem,
+                findOppositeFace((int)colorBox3.SelectedItem),
+                (int)colorBox4.SelectedItem,
+                findOppositeFace((int)colorBox4.SelectedItem)
+            };
             fillBoxHelper(used, colorBox5);
             updateEnabled();
         }
