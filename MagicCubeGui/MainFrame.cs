@@ -212,10 +212,10 @@ namespace MagicCube5D
                 trackStickerSize.Value = value.StickerSize;
                 traceFaceSeparation.Value = value.FaceSeparation;
                 trackRotationRate.Value = value.RotationRate;
-                menuStereoNone.Checked = 0 == value.StereoMode ? true : false;
-                menuStereoCrossEyed.Checked = 1 == value.StereoMode ? true : false;
-                menuStereoAnaglyph.Checked = 2 == value.StereoMode ? true : false;
-                menuStereoAnaglyphNoColor.Checked = 3 == value.StereoMode ? true : false;
+                menuStereoNone.Checked = 0 == value.StereoMode;
+                menuStereoCrossEyed.Checked = 1 == value.StereoMode;
+                menuStereoAnaglyph.Checked = 2 == value.StereoMode;
+                menuStereoAnaglyphNoColor.Checked = 3 == value.StereoMode;
                 trackStereoSeparation.Value = value.StereoSeparation;
                 checkFace1.Checked = value.Face1;
                 checkFace2.Checked = value.Face2;
@@ -464,14 +464,7 @@ namespace MagicCube5D
         // Get the axis index for a face.
         private int getFaceAxisIndex(int face)
         {
-            if (10 == face)
-            {
-                return -1;
-            }
-            else
-            {
-                return face / 2;
-            }
+            return 10 == face ? -1 : face / 2;
         }
 
         // Helper for enabling buttons.
@@ -479,15 +472,7 @@ namespace MagicCube5D
         {
             var invalidAxis = getFaceAxisIndex(face);
             var axes = (Axes)button.Tag;
-            if (axes.a1 == invalidAxis ||
-                axes.a2 == invalidAxis)
-            {
-                button.Enabled = false;
-            }
-            else
-            {
-                button.Enabled = true;
-            }
+            button.Enabled = axes.a1 != invalidAxis && axes.a2 != invalidAxis;
         }
 
         private void comboFace_SelectedIndexChanged(object sender, EventArgs e)
@@ -558,7 +543,7 @@ namespace MagicCube5D
             if (1 == listMacros.SelectedIndices.Count)
             {
                 var index = listMacros.SelectedIndices[0];
-                cube.ExecuteMacro(index, ControlDown() ? true : false);
+                cube.ExecuteMacro(index, ControlDown());
             }
         }
 
@@ -703,12 +688,8 @@ namespace MagicCube5D
 
         protected override bool IsInputKey(Keys keyData)
         {
-            if (keyData == Keys.Left || keyData == Keys.Right || keyData == Keys.Up || keyData == Keys.Down)
-            {
-                return true;
-            }
-
-            return base.IsInputKey(keyData);
+            return keyData == Keys.Left || keyData == Keys.Right || keyData == Keys.Up || keyData == Keys.Down
+                || base.IsInputKey(keyData);
         }
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
