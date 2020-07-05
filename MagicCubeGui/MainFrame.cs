@@ -236,8 +236,8 @@ namespace MagicCube5D
             int s5, int n5,
             int ss, int ns)
         {
-            int sc = s0 + s1 + s2 + s3 + s4 + s5;
-            int nc = n0 + n1 + n2 + n3 + n4 + n5;
+            var sc = s0 + s1 + s2 + s3 + s4 + s5;
+            var nc = n0 + n1 + n2 + n3 + n4 + n5;
 
             this.labelStickers.Text = string.Format("Stickers Solved: {0} of {1} ({2:F1}%)", ss, ns, 100.0 * ss / ns);
             this.labelCubies.Text = string.Format("Cubies Solved:   {0} of {1} ({2:F1}%)", sc, nc, 100.0 * sc / nc);
@@ -277,14 +277,14 @@ namespace MagicCube5D
             this.cube.EnableRedraw = true;
 
             // load all of our our macros.
-            foreach (string s in this.cube.GetMacroNames())
+            foreach (var s in this.cube.GetMacroNames())
                 this.listMacros.Items.Add(s);
 
             // load all of our saved settings
             GuiSettings defSettings = null;
-            foreach (string s in Directory.GetFiles(".", "*.settings"))
+            foreach (var s in Directory.GetFiles(".", "*.settings"))
             {
-                GuiSettings settings = new GuiSettings();
+                var settings = new GuiSettings();
                 settings.Load(s);
                 this.comboSettings.Items.Add(settings);
                 if (settings.Name == DefaultSettingsName)
@@ -308,34 +308,34 @@ namespace MagicCube5D
 
         private void trackItem_ValueChanged(object sender, EventArgs e)
         {
-            TrackBar control = (TrackBar)sender;
+            var control = (TrackBar)sender;
             if (this.cube != null)
                 this.cube.SetParameter((CubeParameter)control.Tag, control.Value);
         }
 
         private void checkFace_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox control = (CheckBox)sender;
+            var control = (CheckBox)sender;
             if (this.cube != null)
                 this.cube.EnableFace((int)control.Tag, control.Checked);
         }
 
         private void btnRotate_MouseClick(object sender, MouseEventArgs e)
         {
-            Button b = (Button)sender;
-            Axes axes = (Axes)b.Tag;
+            var b = (Button)sender;
+            var axes = (Axes)b.Tag;
 
             // swap axes on right side of button
             if (e.X > b.Width / 2)
             {
-                int temp = axes.a1;
+                var temp = axes.a1;
                 axes.a1 = axes.a2;
                 axes.a2 = temp;
             }
 
             if (this.cube != null)
             {
-                int face = this.comboFace.SelectedIndex;
+                var face = this.comboFace.SelectedIndex;
                 if (10 == face)
                     face = -1;
                 this.cube.Rotate(axes.a1, axes.a2, face, 1);
@@ -359,15 +359,15 @@ namespace MagicCube5D
 
         private void menuScramble_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            int scrambleNumber = (int)item.Tag;
+            var item = (ToolStripMenuItem)sender;
+            var scrambleNumber = (int)item.Tag;
             this.cube.Scramble(scrambleNumber);
         }
 
         private void menuPuzzleType_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            int puzzleType = (int)item.Tag;
+            var item = (ToolStripMenuItem)sender;
+            var puzzleType = (int)item.Tag;
             this.cube.SetParameter(CubeParameter.Puzzle, puzzleType);
 
             this.menuPuzzle2.Checked =
@@ -391,12 +391,12 @@ namespace MagicCube5D
 
         private void menuFind_Click(object sender, EventArgs e)
         {
-            using (FindDlg dlg = new FindDlg(this.Settings))
+            using (var dlg = new FindDlg(this.Settings))
             {
                 if (DialogResult.OK != dlg.ShowDialog(this))
                     return;
 
-                List<int> colors = dlg.getSelectedColors();
+                var colors = dlg.getSelectedColors();
                 this.cube.HighlightCubies(colors);
             }
         }
@@ -413,7 +413,7 @@ namespace MagicCube5D
 
         private void menuHilight_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            var item = (ToolStripMenuItem)sender;
             this.cube.CycleStickerAccent((int)item.Tag);
 
             // Cycle the check state.
@@ -437,8 +437,8 @@ namespace MagicCube5D
         // Helper for enabling buttons.
         private void enableButton(ref Button button, int face)
         {
-            int invalidAxis = getFaceAxisIndex(face);
-            Axes axes = (Axes)button.Tag;
+            var invalidAxis = getFaceAxisIndex(face);
+            var axes = (Axes)button.Tag;
             if (axes.a1 == invalidAxis ||
                 axes.a2 == invalidAxis)
                 button.Enabled = false;
@@ -449,7 +449,7 @@ namespace MagicCube5D
         private void comboFace_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Update which buttons are enabled.
-            int face = this.comboFace.SelectedIndex;
+            var face = this.comboFace.SelectedIndex;
             enableButton(ref this.btnXY, face);
             enableButton(ref this.btnXZ, face);
             enableButton(ref this.btnXU, face);
@@ -481,8 +481,8 @@ namespace MagicCube5D
         {
             if (1 == this.listMacros.SelectedIndices.Count)
             {
-                int index = this.listMacros.SelectedIndices[0];
-                ListViewItem item = this.listMacros.Items[index];
+                var index = this.listMacros.SelectedIndices[0];
+                var item = this.listMacros.Items[index];
                 item.BeginEdit();
             }
         }
@@ -491,7 +491,7 @@ namespace MagicCube5D
         {
             if (1 == this.listMacros.SelectedIndices.Count)
             {
-                int index = this.listMacros.SelectedIndices[0];
+                var index = this.listMacros.SelectedIndices[0];
                 this.listMacros.Items.RemoveAt(index);
                 this.cube.DeleteMacro(index);
             }
@@ -501,7 +501,7 @@ namespace MagicCube5D
         {
             if (1 == this.listMacros.SelectedIndices.Count)
             {
-                int index = this.listMacros.SelectedIndices[0];
+                var index = this.listMacros.SelectedIndices[0];
                 if (e.Label != null)
                     this.cube.RenameMacro(index, e.Label);
             }
@@ -511,14 +511,14 @@ namespace MagicCube5D
         {
             if (1 == this.listMacros.SelectedIndices.Count)
             {
-                int index = this.listMacros.SelectedIndices[0];
+                var index = this.listMacros.SelectedIndices[0];
                 this.cube.ExecuteMacro(index, ControlDown() ? true : false);
             }
         }
 
         private void btnSettingsSave_Click(object sender, EventArgs e)
         {
-            using (InputDlg dlg = new InputDlg())
+            using (var dlg = new InputDlg())
             {
                 // get a name for the settings
                 dlg.Caption = "Save Settings";
@@ -537,15 +537,15 @@ namespace MagicCube5D
                 }
 
                 // the new settings they are saving
-                GuiSettings s = this.Settings;
+                var s = this.Settings;
                 s.Name = dlg.Value;
 
                 // find where we can save it
-                string baseFile = s.Name;
-                foreach (char c in Path.GetInvalidFileNameChars())
+                var baseFile = s.Name;
+                foreach (var c in Path.GetInvalidFileNameChars())
                     baseFile = baseFile.Replace(c, '_');
-                string final = baseFile + ".settings";
-                int next = 1;
+                var final = baseFile + ".settings";
+                var next = 1;
                 while (System.IO.File.Exists(final))
                     final = baseFile + (next++) + ".settings";
                 s.Save(final);
@@ -560,7 +560,7 @@ namespace MagicCube5D
         {
             if (this.comboSettings.SelectedItem == null)
                 return;
-            GuiSettings settings = (GuiSettings)this.comboSettings.SelectedItem;
+            var settings = (GuiSettings)this.comboSettings.SelectedItem;
             if (settings.Name == DefaultSettingsName)
                 return;
             this.comboSettings.Items.Remove(settings);
@@ -571,15 +571,15 @@ namespace MagicCube5D
         {
             if (this.comboSettings.SelectedItem == null)
                 return;
-            GuiSettings settings = (GuiSettings)this.comboSettings.SelectedItem;
+            var settings = (GuiSettings)this.comboSettings.SelectedItem;
             this.btnSettingsDelete.Enabled = (settings.Name != DefaultSettingsName);
             this.Settings = settings;
         }
 
         private void btnEditColors_Click(object sender, EventArgs e)
         {
-            GuiSettings current = this.Settings;
-            PropertyDlg dlg = new PropertyDlg();
+            var current = this.Settings;
+            var dlg = new PropertyDlg();
             dlg.EditObject = current;
             if (DialogResult.OK != dlg.ShowDialog(this))
                 return;
@@ -593,16 +593,16 @@ namespace MagicCube5D
             this.menuStereoAnaglyph.Checked =
             this.menuStereoAnaglyphNoColor.Checked = false;
 
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            var item = (ToolStripMenuItem)sender;
             item.Checked = true;
         }
 
         private void menuStereo_CheckChanged(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
+            var item = (ToolStripMenuItem)sender;
             if (item.Checked)
             {
-                int stereoMode = (int)item.Tag;
+                var stereoMode = (int)item.Tag;
                 this.cube.SetParameter(CubeParameter.StereoMode, stereoMode);
             }
         }

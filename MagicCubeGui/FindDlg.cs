@@ -21,7 +21,7 @@ namespace MagicCube5D
         /// </summary>
         public List<int> getSelectedColors()
         {
-            List<int> ret = new List<int>();
+            var ret = new List<int>();
             if (this.colorBox1.SelectedItem != null)
                 ret.Add((int)this.colorBox1.SelectedItem);
             if (this.colorBox2.SelectedItem != null)
@@ -84,23 +84,23 @@ namespace MagicCube5D
 
         private void drawItem(object sender, DrawItemEventArgs e)
         {
-            ComboBox box = (ComboBox)sender;
+            var box = (ComboBox)sender;
 
             // -1 index references what to draw for the selected item.
-            int index = e.Index;
+            var index = e.Index;
             if (index == -1 && box.SelectedItem == null)
                 return;
 
-            bool selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
-            bool focused = (e.State & DrawItemState.Focus) == DrawItemState.Focus;
+            var selected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+            var focused = (e.State & DrawItemState.Focus) == DrawItemState.Focus;
 
             e.DrawBackground();
             if (focused)
                 e.DrawFocusRectangle();
 
-            Color c = getColor(-1 == index ? (int)box.SelectedItem : (int)box.Items[e.Index]);
+            var c = getColor(-1 == index ? (int)box.SelectedItem : (int)box.Items[e.Index]);
 
-            Rectangle rect = e.Bounds;
+            var rect = e.Bounds;
             rect.Inflate(-2, -2);
             e.Graphics.FillRectangle(new SolidBrush(c), rect);
             e.Graphics.DrawRectangle(SystemPens.WindowText, rect);
@@ -174,10 +174,10 @@ namespace MagicCube5D
         {
             box.Items.Clear();
 
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
-                bool add = true;
-                for (int j = 0; j < used.Count; j++)
+                var add = true;
+                for (var j = 0; j < used.Count; j++)
                 {
                     if (i == used[j])
                     {
@@ -193,14 +193,14 @@ namespace MagicCube5D
 
         private void fillBox1()
         {
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 this.colorBox1.Items.Add(i);
             updateEnabled();
         }
 
         private void fillBox2()
         {
-            List<int> used = new List<int>();
+            var used = new List<int>();
             used.Add((int)this.colorBox1.SelectedItem);
             used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
             fillBoxHelper(used, this.colorBox2);
@@ -209,7 +209,7 @@ namespace MagicCube5D
 
         private void fillBox3()
         {
-            List<int> used = new List<int>();
+            var used = new List<int>();
             used.Add((int)this.colorBox1.SelectedItem);
             used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
             used.Add((int)this.colorBox2.SelectedItem);
@@ -220,7 +220,7 @@ namespace MagicCube5D
 
         private void fillBox4()
         {
-            List<int> used = new List<int>();
+            var used = new List<int>();
             used.Add((int)this.colorBox1.SelectedItem);
             used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
             used.Add((int)this.colorBox2.SelectedItem);
@@ -233,7 +233,7 @@ namespace MagicCube5D
 
         private void fillBox5()
         {
-            List<int> used = new List<int>();
+            var used = new List<int>();
             used.Add((int)this.colorBox1.SelectedItem);
             used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
             used.Add((int)this.colorBox2.SelectedItem);
