@@ -3,7 +3,7 @@ namespace MagicCube5D
     using System.ComponentModel;
     using System.Drawing;
 
-    class GuiSettings : PersistableBase
+    internal class GuiSettings : PersistableBase
     {
         [Persistable]
         [Browsable(false)]

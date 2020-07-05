@@ -5,7 +5,7 @@ namespace MagicCube5D
     using System.ComponentModel;
     using System.IO;
 
-    class PersistableBase
+    internal class PersistableBase
     {
         private PropertyDescriptorCollection PersistProps
         {
@@ -59,4 +59,11 @@ namespace MagicCube5D
         }
     }
 
+    [global::System.AttributeUsage(AttributeTargets.Property, Inherited = true, AllowMultiple = false)]
+    internal sealed class PersistableAttribute : Attribute
+    {
+        public PersistableAttribute()
+        {
+        }
+    }
 }

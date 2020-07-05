@@ -5,7 +5,7 @@ namespace MagicCube5D
     using System.Drawing;
     using System.Windows.Forms;
 
-    partial class FindDlg : Form
+    internal partial class FindDlg : Form
     {
         private readonly GuiSettings m_settings;
 
