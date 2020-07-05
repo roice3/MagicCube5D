@@ -7,7 +7,7 @@ namespace MagicCube5D
 
     partial class FindDlg : Form
     {
-        private GuiSettings m_settings;
+        private readonly GuiSettings m_settings;
 
         public FindDlg(GuiSettings settings)
         {

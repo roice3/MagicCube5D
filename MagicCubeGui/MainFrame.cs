@@ -67,7 +67,7 @@ namespace MagicCube5D
     public partial class MainFrame : Form
     {
         private const string DefaultSettingsName = "-- Default --";
-        private ICube cube;
+        private readonly ICube cube;
 
         private GuiSettings lastSettings = new GuiSettings();
 
