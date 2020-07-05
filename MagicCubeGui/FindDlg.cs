@@ -37,10 +37,10 @@ namespace MagicCube5D
 
         private void updateEnabled()
         {
-            this.colorBox2.Enabled = (this.colorBox1.SelectedItem != null);
-            this.colorBox3.Enabled = (this.colorBox2.SelectedItem != null);
-            this.colorBox4.Enabled = (this.colorBox3.SelectedItem != null);
-            this.colorBox5.Enabled = (this.colorBox4.SelectedItem != null);
+            this.colorBox2.Enabled = this.colorBox1.SelectedItem != null;
+            this.colorBox3.Enabled = this.colorBox2.SelectedItem != null;
+            this.colorBox4.Enabled = this.colorBox3.SelectedItem != null;
+            this.colorBox5.Enabled = this.colorBox4.SelectedItem != null;
             this.btnOK.Enabled = this.colorBox2.Enabled;
         }
 

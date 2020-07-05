@@ -40,9 +40,9 @@ namespace MagicCube5D
 			Close();
 		}
 
-		private void textInput_TextChanged( object sender, EventArgs e )
-		{
-			this.btnOK.Enabled = (this.textInput.Text != string.Empty);
-		}
-	}
+        private void textInput_TextChanged(object sender, EventArgs e)
+        {
+            this.btnOK.Enabled = this.textInput.Text != string.Empty;
+        }
+    }
 }

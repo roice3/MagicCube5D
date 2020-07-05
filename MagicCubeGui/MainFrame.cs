@@ -431,7 +431,7 @@ namespace MagicCube5D
             if (10 == face)
                 return -1;
             else
-                return (face / 2);
+                return face / 2;
         }
 
         // Helper for enabling buttons.
@@ -547,7 +547,7 @@ namespace MagicCube5D
                 var final = baseFile + ".settings";
                 var next = 1;
                 while (System.IO.File.Exists(final))
-                    final = baseFile + (next++) + ".settings";
+                    final = baseFile + next++ + ".settings";
                 s.Save(final);
 
                 // add it to the list
@@ -572,7 +572,7 @@ namespace MagicCube5D
             if (this.comboSettings.SelectedItem == null)
                 return;
             var settings = (GuiSettings)this.comboSettings.SelectedItem;
-            this.btnSettingsDelete.Enabled = (settings.Name != DefaultSettingsName);
+            this.btnSettingsDelete.Enabled = settings.Name != DefaultSettingsName;
             this.Settings = settings;
         }
 
