@@ -51,13 +51,13 @@ namespace MagicCube5D
         void HighlightCubies(List<int> colors);
 
         // Macro control.
-        String[] GetMacroNames();
+        string[] GetMacroNames();
 
         void StartMacroRecord();
 
         void StopMacroRecord();
 
-        void RenameMacro(int index, String name);
+        void RenameMacro(int index, string name);
 
         void DeleteMacro(int index);
 
