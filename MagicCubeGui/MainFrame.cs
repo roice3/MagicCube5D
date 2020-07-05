@@ -242,7 +242,7 @@ namespace MagicCube5D
             }
         }
 
-        public void updateProgressPage(
+        public void UpdateProgressPage(
             int s0, int n0,
             int s1, int n1,
             int s2, int n2,
@@ -327,7 +327,7 @@ namespace MagicCube5D
             DrawSurface.Select();
         }
 
-        private void trackItem_ValueChanged(object sender, EventArgs e)
+        private void TrackItem_ValueChanged(object sender, EventArgs e)
         {
             var control = (TrackBar)sender;
             if (cube != null)
@@ -336,7 +336,7 @@ namespace MagicCube5D
             }
         }
 
-        private void checkFace_CheckedChanged(object sender, EventArgs e)
+        private void CheckFace_CheckedChanged(object sender, EventArgs e)
         {
             var control = (CheckBox)sender;
             if (cube != null)
@@ -345,7 +345,7 @@ namespace MagicCube5D
             }
         }
 
-        private void btnRotate_MouseClick(object sender, MouseEventArgs e)
+        private void Rotate_MouseClick(object sender, MouseEventArgs e)
         {
             var b = (Button)sender;
             var axes = (Axes)b.Tag;
@@ -370,29 +370,29 @@ namespace MagicCube5D
             }
         }
 
-        private void menuSave_Click(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
             cube.Save(false);
         }
 
-        private void menuSaveAs_Click(object sender, EventArgs e)
+        private void SaveAs_Click(object sender, EventArgs e)
         {
             cube.Save(true);
         }
 
-        private void menuLoad_Click(object sender, EventArgs e)
+        private void Load_Click(object sender, EventArgs e)
         {
             cube.Load();
         }
 
-        private void menuScramble_Click(object sender, EventArgs e)
+        private void Scramble_Click(object sender, EventArgs e)
         {
             var item = (ToolStripMenuItem)sender;
             var scrambleNumber = (int)item.Tag;
             cube.Scramble(scrambleNumber);
         }
 
-        private void menuPuzzleType_Click(object sender, EventArgs e)
+        private void PuzzleType_Click(object sender, EventArgs e)
         {
             var item = (ToolStripMenuItem)sender;
             var puzzleType = (int)item.Tag;
@@ -407,17 +407,17 @@ namespace MagicCube5D
             item.Checked = true;
         }
 
-        private void menuSolve_Click(object sender, EventArgs e)
+        private void Solve_Click(object sender, EventArgs e)
         {
             cube.Solve();
         }
 
-        private void menuUndo_Click(object sender, EventArgs e)
+        private void Undo_Click(object sender, EventArgs e)
         {
             cube.Undo();
         }
 
-        private void menuFind_Click(object sender, EventArgs e)
+        private void Find_Click(object sender, EventArgs e)
         {
             using (var dlg = new FindDlg(Settings))
             {
@@ -426,22 +426,22 @@ namespace MagicCube5D
                     return;
                 }
 
-                var colors = dlg.getSelectedColors();
+                var colors = dlg.GetSelectedColors();
                 cube.HighlightCubies(colors);
             }
         }
 
-        private void menuRedo_Click(object sender, EventArgs e)
+        private void Redo_Click(object sender, EventArgs e)
         {
             cube.Redo();
         }
 
-        private void menuReset_Click(object sender, EventArgs e)
+        private void Reset_Click(object sender, EventArgs e)
         {
             cube.Reset();
         }
 
-        private void menuHilight_Click(object sender, EventArgs e)
+        private void Highlight_Click(object sender, EventArgs e)
         {
             var item = (ToolStripMenuItem)sender;
             cube.CycleStickerAccent((int)item.Tag);
@@ -462,43 +462,43 @@ namespace MagicCube5D
         }
 
         // Get the axis index for a face.
-        private int getFaceAxisIndex(int face)
+        private int GetFaceAxisIndex(int face)
         {
             return 10 == face ? -1 : face / 2;
         }
 
         // Helper for enabling buttons.
-        private void enableButton(ref Button button, int face)
+        private void EnableButton(ref Button button, int face)
         {
-            var invalidAxis = getFaceAxisIndex(face);
+            var invalidAxis = GetFaceAxisIndex(face);
             var axes = (Axes)button.Tag;
             button.Enabled = axes.a1 != invalidAxis && axes.a2 != invalidAxis;
         }
 
-        private void comboFace_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboFace_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Update which buttons are enabled.
             var face = comboFace.SelectedIndex;
-            enableButton(ref btnXY, face);
-            enableButton(ref btnXZ, face);
-            enableButton(ref btnXU, face);
-            enableButton(ref btnXV, face);
-            enableButton(ref btnYZ, face);
-            enableButton(ref btnYU, face);
-            enableButton(ref btnYV, face);
-            enableButton(ref btnZU, face);
-            enableButton(ref btnZV, face);
-            enableButton(ref btnUV, face);
+            EnableButton(ref btnXY, face);
+            EnableButton(ref btnXZ, face);
+            EnableButton(ref btnXU, face);
+            EnableButton(ref btnXV, face);
+            EnableButton(ref btnYZ, face);
+            EnableButton(ref btnYU, face);
+            EnableButton(ref btnYV, face);
+            EnableButton(ref btnZU, face);
+            EnableButton(ref btnZV, face);
+            EnableButton(ref btnUV, face);
         }
 
-        private void btnStartMacro_Click(object sender, EventArgs e)
+        private void StartMacro_Click(object sender, EventArgs e)
         {
             btnStartMacro.Enabled = false;
             btnStopMacro.Enabled = true;
             cube.StartMacroRecord();
         }
 
-        private void btnStopMacro_Click(object sender, EventArgs e)
+        private void StopMacro_Click(object sender, EventArgs e)
         {
             cube.StopMacroRecord();
             _ = listMacros.Items.Add("New Macro");
@@ -506,7 +506,7 @@ namespace MagicCube5D
             btnStopMacro.Enabled = false;
         }
 
-        private void renameMacro_Click(object sender, EventArgs e)
+        private void RenameMacro_Click(object sender, EventArgs e)
         {
             if (1 == listMacros.SelectedIndices.Count)
             {
@@ -516,7 +516,7 @@ namespace MagicCube5D
             }
         }
 
-        private void deleteMacro_Click(object sender, EventArgs e)
+        private void DeleteMacro_Click(object sender, EventArgs e)
         {
             if (1 == listMacros.SelectedIndices.Count)
             {
@@ -526,7 +526,7 @@ namespace MagicCube5D
             }
         }
 
-        private void listMacros_AfterLabelEdit(object sender, LabelEditEventArgs e)
+        private void ListMacros_AfterLabelEdit(object sender, LabelEditEventArgs e)
         {
             if (1 == listMacros.SelectedIndices.Count)
             {
@@ -538,7 +538,7 @@ namespace MagicCube5D
             }
         }
 
-        private void listMacros_DoubleClick(object sender, EventArgs e)
+        private void ListMacros_DoubleClick(object sender, EventArgs e)
         {
             if (1 == listMacros.SelectedIndices.Count)
             {
@@ -547,7 +547,7 @@ namespace MagicCube5D
             }
         }
 
-        private void btnSettingsSave_Click(object sender, EventArgs e)
+        private void SettingsSave_Click(object sender, EventArgs e)
         {
             using (var dlg = new InputDlg())
             {
@@ -599,7 +599,7 @@ namespace MagicCube5D
             }
         }
 
-        private void btnSettingsDelete_Click(object sender, EventArgs e)
+        private void SettingsDelete_Click(object sender, EventArgs e)
         {
             if (comboSettings.SelectedItem == null)
             {
@@ -616,7 +616,7 @@ namespace MagicCube5D
             File.Delete(settings.Path);
         }
 
-        private void comboSettings_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboSettings_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboSettings.SelectedItem == null)
             {
@@ -628,7 +628,7 @@ namespace MagicCube5D
             Settings = settings;
         }
 
-        private void btnEditColors_Click(object sender, EventArgs e)
+        private void EditColors_Click(object sender, EventArgs e)
         {
             var current = Settings;
             var dlg = new PropertyDlg
@@ -643,7 +643,7 @@ namespace MagicCube5D
             Settings = current;
         }
 
-        private void menuStereo_Click(object sender, EventArgs e)
+        private void Stereo_Click(object sender, EventArgs e)
         {
             menuStereoNone.Checked =
             menuStereoCrossEyed.Checked =
@@ -654,7 +654,7 @@ namespace MagicCube5D
             item.Checked = true;
         }
 
-        private void menuStereo_CheckChanged(object sender, EventArgs e)
+        private void Stereo_CheckChanged(object sender, EventArgs e)
         {
             var item = (ToolStripMenuItem)sender;
             if (item.Checked)

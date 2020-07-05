@@ -28,19 +28,19 @@ namespace MagicCube5D
             set { textInput.Text = value; }
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
         }
 
-        private void textInput_TextChanged(object sender, EventArgs e)
+        private void Input_TextChanged(object sender, EventArgs e)
         {
             btnOK.Enabled = textInput.Text != string.Empty;
         }

@@ -201,7 +201,7 @@ namespace MagicCube5D
 			this.trackStereoSeparation.Size = new System.Drawing.Size( 192, 24 );
 			this.trackStereoSeparation.TabIndex = 13;
 			this.trackStereoSeparation.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.trackStereoSeparation.ValueChanged += new System.EventHandler( this.trackItem_ValueChanged );
+			this.trackStereoSeparation.ValueChanged += new System.EventHandler( this.TrackItem_ValueChanged );
 			// 
 			// label9
 			// 
@@ -221,7 +221,7 @@ namespace MagicCube5D
 			this.trackRotationRate.Size = new System.Drawing.Size( 192, 24 );
 			this.trackRotationRate.TabIndex = 11;
 			this.trackRotationRate.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.trackRotationRate.ValueChanged += new System.EventHandler( this.trackItem_ValueChanged );
+			this.trackRotationRate.ValueChanged += new System.EventHandler( this.TrackItem_ValueChanged );
 			// 
 			// label6
 			// 
@@ -241,7 +241,7 @@ namespace MagicCube5D
 			this.trackStickerSize.Size = new System.Drawing.Size( 192, 24 );
 			this.trackStickerSize.TabIndex = 9;
 			this.trackStickerSize.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.trackStickerSize.ValueChanged += new System.EventHandler( this.trackItem_ValueChanged );
+			this.trackStickerSize.ValueChanged += new System.EventHandler( this.TrackItem_ValueChanged );
 			// 
 			// trackStickerSeparation
 			// 
@@ -252,7 +252,7 @@ namespace MagicCube5D
 			this.trackStickerSeparation.Size = new System.Drawing.Size( 192, 24 );
 			this.trackStickerSeparation.TabIndex = 7;
 			this.trackStickerSeparation.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.trackStickerSeparation.ValueChanged += new System.EventHandler( this.trackItem_ValueChanged );
+			this.trackStickerSeparation.ValueChanged += new System.EventHandler( this.TrackItem_ValueChanged );
 			// 
 			// traceFaceSeparation
 			// 
@@ -263,7 +263,7 @@ namespace MagicCube5D
 			this.traceFaceSeparation.Size = new System.Drawing.Size( 192, 24 );
 			this.traceFaceSeparation.TabIndex = 5;
 			this.traceFaceSeparation.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.traceFaceSeparation.ValueChanged += new System.EventHandler( this.trackItem_ValueChanged );
+			this.traceFaceSeparation.ValueChanged += new System.EventHandler( this.TrackItem_ValueChanged );
 			// 
 			// track4dDist
 			// 
@@ -274,7 +274,7 @@ namespace MagicCube5D
 			this.track4dDist.Size = new System.Drawing.Size( 192, 24 );
 			this.track4dDist.TabIndex = 3;
 			this.track4dDist.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.track4dDist.ValueChanged += new System.EventHandler( this.trackItem_ValueChanged );
+			this.track4dDist.ValueChanged += new System.EventHandler( this.TrackItem_ValueChanged );
 			// 
 			// track5dDist
 			// 
@@ -285,7 +285,7 @@ namespace MagicCube5D
 			this.track5dDist.Size = new System.Drawing.Size( 192, 24 );
 			this.track5dDist.TabIndex = 1;
 			this.track5dDist.TickStyle = System.Windows.Forms.TickStyle.None;
-			this.track5dDist.ValueChanged += new System.EventHandler( this.trackItem_ValueChanged );
+			this.track5dDist.ValueChanged += new System.EventHandler( this.TrackItem_ValueChanged );
 			// 
 			// label5
 			// 
@@ -361,7 +361,7 @@ namespace MagicCube5D
 			this.btnEditColors.TabIndex = 10;
 			this.btnEditColors.Text = "Edit Colors...";
 			this.btnEditColors.UseVisualStyleBackColor = true;
-			this.btnEditColors.Click += new System.EventHandler( this.btnEditColors_Click );
+			this.btnEditColors.Click += new System.EventHandler( this.EditColors_Click );
 			// 
 			// checkFace10
 			// 
@@ -376,7 +376,7 @@ namespace MagicCube5D
 			this.checkFace10.TabIndex = 9;
 			this.checkFace10.Text = " - V";
 			this.checkFace10.UseVisualStyleBackColor = true;
-			this.checkFace10.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace10.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace9
 			// 
@@ -391,7 +391,7 @@ namespace MagicCube5D
 			this.checkFace9.TabIndex = 8;
 			this.checkFace9.Text = "+ V";
 			this.checkFace9.UseVisualStyleBackColor = true;
-			this.checkFace9.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace9.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace8
 			// 
@@ -406,7 +406,7 @@ namespace MagicCube5D
 			this.checkFace8.TabIndex = 7;
 			this.checkFace8.Text = " - U";
 			this.checkFace8.UseVisualStyleBackColor = true;
-			this.checkFace8.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace8.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace7
 			// 
@@ -421,7 +421,7 @@ namespace MagicCube5D
 			this.checkFace7.TabIndex = 6;
 			this.checkFace7.Text = "+ U";
 			this.checkFace7.UseVisualStyleBackColor = true;
-			this.checkFace7.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace7.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace6
 			// 
@@ -436,7 +436,7 @@ namespace MagicCube5D
 			this.checkFace6.TabIndex = 5;
 			this.checkFace6.Text = " - Z";
 			this.checkFace6.UseVisualStyleBackColor = true;
-			this.checkFace6.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace6.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace5
 			// 
@@ -451,7 +451,7 @@ namespace MagicCube5D
 			this.checkFace5.TabIndex = 4;
 			this.checkFace5.Text = "+ Z";
 			this.checkFace5.UseVisualStyleBackColor = true;
-			this.checkFace5.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace5.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace4
 			// 
@@ -466,7 +466,7 @@ namespace MagicCube5D
 			this.checkFace4.TabIndex = 3;
 			this.checkFace4.Text = " - Y";
 			this.checkFace4.UseVisualStyleBackColor = true;
-			this.checkFace4.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace4.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace3
 			// 
@@ -481,7 +481,7 @@ namespace MagicCube5D
 			this.checkFace3.TabIndex = 2;
 			this.checkFace3.Text = "+ Y";
 			this.checkFace3.UseVisualStyleBackColor = true;
-			this.checkFace3.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace3.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace2
 			// 
@@ -496,7 +496,7 @@ namespace MagicCube5D
 			this.checkFace2.TabIndex = 1;
 			this.checkFace2.Text = " - X";
 			this.checkFace2.UseVisualStyleBackColor = true;
-			this.checkFace2.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace2.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// checkFace1
 			// 
@@ -511,7 +511,7 @@ namespace MagicCube5D
 			this.checkFace1.TabIndex = 0;
 			this.checkFace1.Text = "+ X";
 			this.checkFace1.UseVisualStyleBackColor = true;
-			this.checkFace1.CheckedChanged += new System.EventHandler( this.checkFace_CheckedChanged );
+			this.checkFace1.CheckedChanged += new System.EventHandler( this.CheckFace_CheckedChanged );
 			// 
 			// pageMacros
 			// 
@@ -534,7 +534,7 @@ namespace MagicCube5D
 			this.btnStopMacro.TabIndex = 2;
 			this.btnStopMacro.Text = "Stop Record";
 			this.btnStopMacro.UseVisualStyleBackColor = true;
-			this.btnStopMacro.Click += new System.EventHandler( this.btnStopMacro_Click );
+			this.btnStopMacro.Click += new System.EventHandler( this.StopMacro_Click );
 			// 
 			// btnStartMacro
 			// 
@@ -544,7 +544,7 @@ namespace MagicCube5D
 			this.btnStartMacro.TabIndex = 1;
 			this.btnStartMacro.Text = "Start Record";
 			this.btnStartMacro.UseVisualStyleBackColor = true;
-			this.btnStartMacro.Click += new System.EventHandler( this.btnStartMacro_Click );
+			this.btnStartMacro.Click += new System.EventHandler( this.StartMacro_Click );
 			// 
 			// listMacros
 			// 
@@ -559,8 +559,8 @@ namespace MagicCube5D
 			this.listMacros.TabIndex = 0;
 			this.listMacros.UseCompatibleStateImageBehavior = false;
 			this.listMacros.View = System.Windows.Forms.View.Details;
-			this.listMacros.DoubleClick += new System.EventHandler( this.listMacros_DoubleClick );
-			this.listMacros.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler( this.listMacros_AfterLabelEdit );
+			this.listMacros.DoubleClick += new System.EventHandler( this.ListMacros_DoubleClick );
+			this.listMacros.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler( this.ListMacros_AfterLabelEdit );
 			// 
 			// MacroColumnHeader
 			// 
@@ -580,14 +580,14 @@ namespace MagicCube5D
 			this.renameMacroToolStripMenuItem.Name = "renameMacroToolStripMenuItem";
 			this.renameMacroToolStripMenuItem.Size = new System.Drawing.Size( 156, 22 );
 			this.renameMacroToolStripMenuItem.Text = "Rename Macro";
-			this.renameMacroToolStripMenuItem.Click += new System.EventHandler( this.renameMacro_Click );
+			this.renameMacroToolStripMenuItem.Click += new System.EventHandler( this.RenameMacro_Click );
 			// 
 			// deleteMacroToolStripMenuItem
 			// 
 			this.deleteMacroToolStripMenuItem.Name = "deleteMacroToolStripMenuItem";
 			this.deleteMacroToolStripMenuItem.Size = new System.Drawing.Size( 156, 22 );
 			this.deleteMacroToolStripMenuItem.Text = "Delete Macro";
-			this.deleteMacroToolStripMenuItem.Click += new System.EventHandler( this.deleteMacro_Click );
+			this.deleteMacroToolStripMenuItem.Click += new System.EventHandler( this.DeleteMacro_Click );
 			// 
 			// pageProgress
 			// 
@@ -699,7 +699,7 @@ namespace MagicCube5D
 			this.btnXY.TabIndex = 20;
 			this.btnXY.Text = "X - Y";
 			this.btnXY.UseVisualStyleBackColor = true;
-			this.btnXY.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnXY.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnXZ
 			// 
@@ -711,7 +711,7 @@ namespace MagicCube5D
 			this.btnXZ.TabIndex = 21;
 			this.btnXZ.Text = "X - Z";
 			this.btnXZ.UseVisualStyleBackColor = true;
-			this.btnXZ.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnXZ.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnXU
 			// 
@@ -723,7 +723,7 @@ namespace MagicCube5D
 			this.btnXU.TabIndex = 22;
 			this.btnXU.Text = "X - U";
 			this.btnXU.UseVisualStyleBackColor = true;
-			this.btnXU.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnXU.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnXV
 			// 
@@ -735,7 +735,7 @@ namespace MagicCube5D
 			this.btnXV.TabIndex = 23;
 			this.btnXV.Text = "X - V";
 			this.btnXV.UseVisualStyleBackColor = true;
-			this.btnXV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnXV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnYZ
 			// 
@@ -747,7 +747,7 @@ namespace MagicCube5D
 			this.btnYZ.TabIndex = 24;
 			this.btnYZ.Text = "Y - Z";
 			this.btnYZ.UseVisualStyleBackColor = true;
-			this.btnYZ.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnYZ.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnYU
 			// 
@@ -759,7 +759,7 @@ namespace MagicCube5D
 			this.btnYU.TabIndex = 25;
 			this.btnYU.Text = "Y - U";
 			this.btnYU.UseVisualStyleBackColor = true;
-			this.btnYU.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnYU.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnYV
 			// 
@@ -771,7 +771,7 @@ namespace MagicCube5D
 			this.btnYV.TabIndex = 26;
 			this.btnYV.Text = "Y - V";
 			this.btnYV.UseVisualStyleBackColor = true;
-			this.btnYV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnYV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnZU
 			// 
@@ -783,7 +783,7 @@ namespace MagicCube5D
 			this.btnZU.TabIndex = 27;
 			this.btnZU.Text = "Z - U";
 			this.btnZU.UseVisualStyleBackColor = true;
-			this.btnZU.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnZU.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnZV
 			// 
@@ -795,7 +795,7 @@ namespace MagicCube5D
 			this.btnZV.TabIndex = 28;
 			this.btnZV.Text = "Z - V";
 			this.btnZV.UseVisualStyleBackColor = true;
-			this.btnZV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnZV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// btnUV
 			// 
@@ -807,7 +807,7 @@ namespace MagicCube5D
 			this.btnUV.TabIndex = 29;
 			this.btnUV.Text = "U - V";
 			this.btnUV.UseVisualStyleBackColor = true;
-			this.btnUV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.btnRotate_MouseClick );
+			this.btnUV.MouseClick += new System.Windows.Forms.MouseEventHandler( this.Rotate_MouseClick );
 			// 
 			// menuStrip1
 			// 
@@ -840,7 +840,7 @@ namespace MagicCube5D
 			this.menuLoad.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
 			this.menuLoad.Size = new System.Drawing.Size( 163, 22 );
 			this.menuLoad.Text = "Open...";
-			this.menuLoad.Click += new System.EventHandler( this.menuLoad_Click );
+			this.menuLoad.Click += new System.EventHandler( this.Load_Click );
 			// 
 			// menuSave
 			// 
@@ -848,14 +848,14 @@ namespace MagicCube5D
 			this.menuSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
 			this.menuSave.Size = new System.Drawing.Size( 163, 22 );
 			this.menuSave.Text = "Save";
-			this.menuSave.Click += new System.EventHandler( this.menuSave_Click );
+			this.menuSave.Click += new System.EventHandler( this.Save_Click );
 			// 
 			// menuSaveAs
 			// 
 			this.menuSaveAs.Name = "menuSaveAs";
 			this.menuSaveAs.Size = new System.Drawing.Size( 163, 22 );
 			this.menuSaveAs.Text = "Save As...";
-			this.menuSaveAs.Click += new System.EventHandler( this.menuSaveAs_Click );
+			this.menuSaveAs.Click += new System.EventHandler( this.SaveAs_Click );
 			// 
 			// puzzleToolStripMenuItem
 			// 
@@ -875,28 +875,28 @@ namespace MagicCube5D
 			this.menuPuzzle2.Name = "menuPuzzle2";
 			this.menuPuzzle2.Size = new System.Drawing.Size( 152, 22 );
 			this.menuPuzzle2.Text = "2x2x2x2x2";
-			this.menuPuzzle2.Click += new System.EventHandler( this.menuPuzzleType_Click );
+			this.menuPuzzle2.Click += new System.EventHandler( this.PuzzleType_Click );
 			// 
 			// menuPuzzle3
 			// 
 			this.menuPuzzle3.Name = "menuPuzzle3";
 			this.menuPuzzle3.Size = new System.Drawing.Size( 152, 22 );
 			this.menuPuzzle3.Text = "3x3x3x3x3";
-			this.menuPuzzle3.Click += new System.EventHandler( this.menuPuzzleType_Click );
+			this.menuPuzzle3.Click += new System.EventHandler( this.PuzzleType_Click );
 			// 
 			// menuPuzzle4
 			// 
 			this.menuPuzzle4.Name = "menuPuzzle4";
 			this.menuPuzzle4.Size = new System.Drawing.Size( 152, 22 );
 			this.menuPuzzle4.Text = "4x4x4x4x4";
-			this.menuPuzzle4.Click += new System.EventHandler( this.menuPuzzleType_Click );
+			this.menuPuzzle4.Click += new System.EventHandler( this.PuzzleType_Click );
 			// 
 			// menuPuzzle5
 			// 
 			this.menuPuzzle5.Name = "menuPuzzle5";
 			this.menuPuzzle5.Size = new System.Drawing.Size( 152, 22 );
 			this.menuPuzzle5.Text = "5x5x5x5x5";
-			this.menuPuzzle5.Click += new System.EventHandler( this.menuPuzzleType_Click );
+			this.menuPuzzle5.Click += new System.EventHandler( this.PuzzleType_Click );
 			// 
 			// hilightingToolStripMenuItem
 			// 
@@ -916,7 +916,7 @@ namespace MagicCube5D
 			this.menuHilight1.ShortcutKeys = System.Windows.Forms.Keys.F1;
 			this.menuHilight1.Size = new System.Drawing.Size( 170, 22 );
 			this.menuHilight1.Text = "1-color Pieces";
-			this.menuHilight1.Click += new System.EventHandler( this.menuHilight_Click );
+			this.menuHilight1.Click += new System.EventHandler( this.Highlight_Click );
 			// 
 			// menuHilight2
 			// 
@@ -924,7 +924,7 @@ namespace MagicCube5D
 			this.menuHilight2.ShortcutKeys = System.Windows.Forms.Keys.F2;
 			this.menuHilight2.Size = new System.Drawing.Size( 170, 22 );
 			this.menuHilight2.Text = "2-color Pieces";
-			this.menuHilight2.Click += new System.EventHandler( this.menuHilight_Click );
+			this.menuHilight2.Click += new System.EventHandler( this.Highlight_Click );
 			// 
 			// menuHilight3
 			// 
@@ -932,7 +932,7 @@ namespace MagicCube5D
 			this.menuHilight3.ShortcutKeys = System.Windows.Forms.Keys.F3;
 			this.menuHilight3.Size = new System.Drawing.Size( 170, 22 );
 			this.menuHilight3.Text = "3-color Pieces";
-			this.menuHilight3.Click += new System.EventHandler( this.menuHilight_Click );
+			this.menuHilight3.Click += new System.EventHandler( this.Highlight_Click );
 			// 
 			// menuHilight4
 			// 
@@ -940,7 +940,7 @@ namespace MagicCube5D
 			this.menuHilight4.ShortcutKeys = System.Windows.Forms.Keys.F4;
 			this.menuHilight4.Size = new System.Drawing.Size( 170, 22 );
 			this.menuHilight4.Text = "4-color Pieces";
-			this.menuHilight4.Click += new System.EventHandler( this.menuHilight_Click );
+			this.menuHilight4.Click += new System.EventHandler( this.Highlight_Click );
 			// 
 			// menuHilight5
 			// 
@@ -948,7 +948,7 @@ namespace MagicCube5D
 			this.menuHilight5.ShortcutKeys = System.Windows.Forms.Keys.F5;
 			this.menuHilight5.Size = new System.Drawing.Size( 170, 22 );
 			this.menuHilight5.Text = "5-color Pieces";
-			this.menuHilight5.Click += new System.EventHandler( this.menuHilight_Click );
+			this.menuHilight5.Click += new System.EventHandler( this.Highlight_Click );
 			// 
 			// scrambleToolStripMenuItem
 			// 
@@ -970,7 +970,7 @@ namespace MagicCube5D
 			this.menuScramble1.Size = new System.Drawing.Size( 101, 22 );
 			this.menuScramble1.Tag = "";
 			this.menuScramble1.Text = "1";
-			this.menuScramble1.Click += new System.EventHandler( this.menuScramble_Click );
+			this.menuScramble1.Click += new System.EventHandler( this.Scramble_Click );
 			// 
 			// menuScramble2
 			// 
@@ -978,7 +978,7 @@ namespace MagicCube5D
 			this.menuScramble2.Size = new System.Drawing.Size( 101, 22 );
 			this.menuScramble2.Tag = "";
 			this.menuScramble2.Text = "2";
-			this.menuScramble2.Click += new System.EventHandler( this.menuScramble_Click );
+			this.menuScramble2.Click += new System.EventHandler( this.Scramble_Click );
 			// 
 			// menuScramble3
 			// 
@@ -986,7 +986,7 @@ namespace MagicCube5D
 			this.menuScramble3.Size = new System.Drawing.Size( 101, 22 );
 			this.menuScramble3.Tag = "";
 			this.menuScramble3.Text = "3";
-			this.menuScramble3.Click += new System.EventHandler( this.menuScramble_Click );
+			this.menuScramble3.Click += new System.EventHandler( this.Scramble_Click );
 			// 
 			// menuScramble4
 			// 
@@ -994,7 +994,7 @@ namespace MagicCube5D
 			this.menuScramble4.Size = new System.Drawing.Size( 101, 22 );
 			this.menuScramble4.Tag = "";
 			this.menuScramble4.Text = "4";
-			this.menuScramble4.Click += new System.EventHandler( this.menuScramble_Click );
+			this.menuScramble4.Click += new System.EventHandler( this.Scramble_Click );
 			// 
 			// menuScramble5
 			// 
@@ -1002,7 +1002,7 @@ namespace MagicCube5D
 			this.menuScramble5.Size = new System.Drawing.Size( 101, 22 );
 			this.menuScramble5.Tag = "";
 			this.menuScramble5.Text = "5";
-			this.menuScramble5.Click += new System.EventHandler( this.menuScramble_Click );
+			this.menuScramble5.Click += new System.EventHandler( this.Scramble_Click );
 			// 
 			// toolStripSeparator2
 			// 
@@ -1014,7 +1014,7 @@ namespace MagicCube5D
 			this.menuScrambleFull.Name = "menuScrambleFull";
 			this.menuScrambleFull.Size = new System.Drawing.Size( 101, 22 );
 			this.menuScrambleFull.Text = "Full";
-			this.menuScrambleFull.Click += new System.EventHandler( this.menuScramble_Click );
+			this.menuScrambleFull.Click += new System.EventHandler( this.Scramble_Click );
 			// 
 			// optionsToolStripMenuItem
 			// 
@@ -1033,7 +1033,7 @@ namespace MagicCube5D
 			this.menuSolve.Name = "menuSolve";
 			this.menuSolve.Size = new System.Drawing.Size( 148, 22 );
 			this.menuSolve.Text = "Solve";
-			this.menuSolve.Click += new System.EventHandler( this.menuSolve_Click );
+			this.menuSolve.Click += new System.EventHandler( this.Solve_Click );
 			// 
 			// menuUndo
 			// 
@@ -1041,7 +1041,7 @@ namespace MagicCube5D
 			this.menuUndo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
 			this.menuUndo.Size = new System.Drawing.Size( 148, 22 );
 			this.menuUndo.Text = "Undo";
-			this.menuUndo.Click += new System.EventHandler( this.menuUndo_Click );
+			this.menuUndo.Click += new System.EventHandler( this.Undo_Click );
 			// 
 			// menuRedo
 			// 
@@ -1049,14 +1049,14 @@ namespace MagicCube5D
 			this.menuRedo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
 			this.menuRedo.Size = new System.Drawing.Size( 148, 22 );
 			this.menuRedo.Text = "Redo";
-			this.menuRedo.Click += new System.EventHandler( this.menuRedo_Click );
+			this.menuRedo.Click += new System.EventHandler( this.Redo_Click );
 			// 
 			// menuReset
 			// 
 			this.menuReset.Name = "menuReset";
 			this.menuReset.Size = new System.Drawing.Size( 148, 22 );
 			this.menuReset.Text = "Reset";
-			this.menuReset.Click += new System.EventHandler( this.menuReset_Click );
+			this.menuReset.Click += new System.EventHandler( this.Reset_Click );
 			// 
 			// menuFind
 			// 
@@ -1064,7 +1064,7 @@ namespace MagicCube5D
 			this.menuFind.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
 			this.menuFind.Size = new System.Drawing.Size( 148, 22 );
 			this.menuFind.Text = "Find";
-			this.menuFind.Click += new System.EventHandler( this.menuFind_Click );
+			this.menuFind.Click += new System.EventHandler( this.Find_Click );
 			// 
 			// stereoToolStripMenuItem
 			// 
@@ -1082,32 +1082,32 @@ namespace MagicCube5D
 			this.menuStereoNone.Name = "menuStereoNone";
 			this.menuStereoNone.Size = new System.Drawing.Size( 179, 22 );
 			this.menuStereoNone.Text = "None";
-			this.menuStereoNone.CheckedChanged += new System.EventHandler( this.menuStereo_CheckChanged );
-			this.menuStereoNone.Click += new System.EventHandler( this.menuStereo_Click );
+			this.menuStereoNone.CheckedChanged += new System.EventHandler( this.Stereo_CheckChanged );
+			this.menuStereoNone.Click += new System.EventHandler( this.Stereo_Click );
 			// 
 			// menuStereoCrossEyed
 			// 
 			this.menuStereoCrossEyed.Name = "menuStereoCrossEyed";
 			this.menuStereoCrossEyed.Size = new System.Drawing.Size( 179, 22 );
 			this.menuStereoCrossEyed.Text = "Cross-Eyed";
-			this.menuStereoCrossEyed.CheckedChanged += new System.EventHandler( this.menuStereo_CheckChanged );
-			this.menuStereoCrossEyed.Click += new System.EventHandler( this.menuStereo_Click );
+			this.menuStereoCrossEyed.CheckedChanged += new System.EventHandler( this.Stereo_CheckChanged );
+			this.menuStereoCrossEyed.Click += new System.EventHandler( this.Stereo_Click );
 			// 
 			// menuStereoAnaglyph
 			// 
 			this.menuStereoAnaglyph.Name = "menuStereoAnaglyph";
 			this.menuStereoAnaglyph.Size = new System.Drawing.Size( 179, 22 );
 			this.menuStereoAnaglyph.Text = "Anaglyph";
-			this.menuStereoAnaglyph.CheckedChanged += new System.EventHandler( this.menuStereo_CheckChanged );
-			this.menuStereoAnaglyph.Click += new System.EventHandler( this.menuStereo_Click );
+			this.menuStereoAnaglyph.CheckedChanged += new System.EventHandler( this.Stereo_CheckChanged );
+			this.menuStereoAnaglyph.Click += new System.EventHandler( this.Stereo_Click );
 			// 
 			// menuStereoAnaglyphNoColor
 			// 
 			this.menuStereoAnaglyphNoColor.Name = "menuStereoAnaglyphNoColor";
 			this.menuStereoAnaglyphNoColor.Size = new System.Drawing.Size( 179, 22 );
 			this.menuStereoAnaglyphNoColor.Text = "Anaglyph (no color)";
-			this.menuStereoAnaglyphNoColor.CheckedChanged += new System.EventHandler( this.menuStereo_CheckChanged );
-			this.menuStereoAnaglyphNoColor.Click += new System.EventHandler( this.menuStereo_Click );
+			this.menuStereoAnaglyphNoColor.CheckedChanged += new System.EventHandler( this.Stereo_CheckChanged );
+			this.menuStereoAnaglyphNoColor.Click += new System.EventHandler( this.Stereo_Click );
 			// 
 			// comboFace
 			// 
@@ -1132,7 +1132,7 @@ namespace MagicCube5D
 			this.comboFace.Name = "comboFace";
 			this.comboFace.Size = new System.Drawing.Size( 216, 21 );
 			this.comboFace.TabIndex = 11;
-			this.comboFace.SelectedIndexChanged += new System.EventHandler( this.comboFace_SelectedIndexChanged );
+			this.comboFace.SelectedIndexChanged += new System.EventHandler( this.ComboFace_SelectedIndexChanged );
 			// 
 			// label7
 			// 
@@ -1164,7 +1164,7 @@ namespace MagicCube5D
 			this.comboSettings.Size = new System.Drawing.Size( 216, 21 );
 			this.comboSettings.Sorted = true;
 			this.comboSettings.TabIndex = 6;
-			this.comboSettings.SelectedIndexChanged += new System.EventHandler( this.comboSettings_SelectedIndexChanged );
+			this.comboSettings.SelectedIndexChanged += new System.EventHandler( this.ComboSettings_SelectedIndexChanged );
 			// 
 			// btnSettingsSave
 			// 
@@ -1175,7 +1175,7 @@ namespace MagicCube5D
 			this.btnSettingsSave.TabIndex = 7;
 			this.btnSettingsSave.Text = "&Save As...";
 			this.btnSettingsSave.UseVisualStyleBackColor = true;
-			this.btnSettingsSave.Click += new System.EventHandler( this.btnSettingsSave_Click );
+			this.btnSettingsSave.Click += new System.EventHandler( this.SettingsSave_Click );
 			// 
 			// btnSettingsDelete
 			// 
@@ -1186,21 +1186,21 @@ namespace MagicCube5D
 			this.btnSettingsDelete.TabIndex = 8;
 			this.btnSettingsDelete.Text = "Delete";
 			this.btnSettingsDelete.UseVisualStyleBackColor = true;
-			this.btnSettingsDelete.Click += new System.EventHandler( this.btnSettingsDelete_Click );
+			this.btnSettingsDelete.Click += new System.EventHandler( this.SettingsDelete_Click );
 			// 
 			// menuPuzzle6
 			// 
 			this.menuPuzzle6.Name = "menuPuzzle6";
 			this.menuPuzzle6.Size = new System.Drawing.Size( 152, 22 );
 			this.menuPuzzle6.Text = "6x6x6x6x6";
-			this.menuPuzzle6.Click += new System.EventHandler( this.menuPuzzleType_Click );
+			this.menuPuzzle6.Click += new System.EventHandler( this.PuzzleType_Click );
 			// 
 			// menuPuzzle7
 			// 
 			this.menuPuzzle7.Name = "menuPuzzle7";
 			this.menuPuzzle7.Size = new System.Drawing.Size( 152, 22 );
 			this.menuPuzzle7.Text = "7x7x7x7x7";
-			this.menuPuzzle7.Click += new System.EventHandler( this.menuPuzzleType_Click );
+			this.menuPuzzle7.Click += new System.EventHandler( this.PuzzleType_Click );
 			// 
 			// MainFrame
 			// 

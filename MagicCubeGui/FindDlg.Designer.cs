@@ -47,7 +47,7 @@ namespace MagicCube5D
 			this.btnCancel.TabIndex = 5;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
-			this.btnCancel.Click += new System.EventHandler( this.btnCancel_Click );
+			this.btnCancel.Click += new System.EventHandler( this.Cancel_Click );
 			// 
 			// btnOK
 			// 
@@ -58,7 +58,7 @@ namespace MagicCube5D
 			this.btnOK.TabIndex = 4;
 			this.btnOK.Text = "OK";
 			this.btnOK.UseVisualStyleBackColor = true;
-			this.btnOK.Click += new System.EventHandler( this.btnOK_Click );
+			this.btnOK.Click += new System.EventHandler( this.OK_Click );
 			// 
 			// colorBox1
 			// 
@@ -71,8 +71,8 @@ namespace MagicCube5D
 			this.colorBox1.Name = "colorBox1";
 			this.colorBox1.Size = new System.Drawing.Size( 312, 21 );
 			this.colorBox1.TabIndex = 6;
-			this.colorBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.colorBox1_DrawItem );
-			this.colorBox1.SelectedValueChanged += new System.EventHandler( this.colorBox1_SelectedValueChanged );
+			this.colorBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.ColorBox1_DrawItem );
+			this.colorBox1.SelectedValueChanged += new System.EventHandler( this.ColorBox1_SelectedValueChanged );
 			// 
 			// colorBox2
 			// 
@@ -85,8 +85,8 @@ namespace MagicCube5D
 			this.colorBox2.Name = "colorBox2";
 			this.colorBox2.Size = new System.Drawing.Size( 312, 21 );
 			this.colorBox2.TabIndex = 7;
-			this.colorBox2.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.colorBox2_DrawItem );
-			this.colorBox2.SelectedValueChanged += new System.EventHandler( this.colorBox2_SelectedValueChanged );
+			this.colorBox2.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.ColorBox2_DrawItem );
+			this.colorBox2.SelectedValueChanged += new System.EventHandler( this.ColorBox2_SelectedValueChanged );
 			// 
 			// colorBox3
 			// 
@@ -99,8 +99,8 @@ namespace MagicCube5D
 			this.colorBox3.Name = "colorBox3";
 			this.colorBox3.Size = new System.Drawing.Size( 312, 21 );
 			this.colorBox3.TabIndex = 8;
-			this.colorBox3.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.colorBox3_DrawItem );
-			this.colorBox3.SelectedValueChanged += new System.EventHandler( this.colorBox3_SelectedValueChanged );
+			this.colorBox3.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.ColorBox3_DrawItem );
+			this.colorBox3.SelectedValueChanged += new System.EventHandler( this.ColorBox3_SelectedValueChanged );
 			// 
 			// colorBox4
 			// 
@@ -113,8 +113,8 @@ namespace MagicCube5D
 			this.colorBox4.Name = "colorBox4";
 			this.colorBox4.Size = new System.Drawing.Size( 312, 21 );
 			this.colorBox4.TabIndex = 9;
-			this.colorBox4.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.colorBox4_DrawItem );
-			this.colorBox4.SelectedValueChanged += new System.EventHandler( this.colorBox4_SelectedValueChanged );
+			this.colorBox4.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.ColorBox4_DrawItem );
+			this.colorBox4.SelectedValueChanged += new System.EventHandler( this.ColorBox4_SelectedValueChanged );
 			// 
 			// colorBox5
 			// 
@@ -127,7 +127,7 @@ namespace MagicCube5D
 			this.colorBox5.Name = "colorBox5";
 			this.colorBox5.Size = new System.Drawing.Size( 312, 21 );
 			this.colorBox5.TabIndex = 10;
-			this.colorBox5.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.colorBox5_DrawItem );
+			this.colorBox5.DrawItem += new System.Windows.Forms.DrawItemEventHandler( this.ColorBox5_DrawItem );
 			// 
 			// label1
 			// 

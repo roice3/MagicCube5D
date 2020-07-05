@@ -35,7 +35,7 @@ CubeFrame::!CubeFrame() {
 namespace {
 void updateSolvedInfo(CCube5D& cube, MainFrame ^ frame) {
     SSolvedInfo si = cube.updateSolvedInfo();
-    frame->updateProgressPage(si.s0, si.n0, si.s1, si.n1, si.s2, si.n2, si.s3, si.n3,
+    frame->UpdateProgressPage(si.s0, si.n0, si.s1, si.n1, si.s2, si.n2, si.s3, si.n3,
                               si.s4, si.n4, si.s5, si.n5, si.ss, si.ns);
 }
 }  // namespace
@@ -540,8 +540,8 @@ array<String ^> ^ CubeFrame::GetMacroNames() {
 }
 
 // XXX - make these return a bool so we are sure to stay synced with macro file.
-//		 e.g. changing a name could update the UI but not the macro file as it is
-//now.
+//		 e.g. changing a name could update the UI but not the macro file as it
+// is now.
 void CubeFrame::StartMacroRecord() {
     if (m_animating) return;
 

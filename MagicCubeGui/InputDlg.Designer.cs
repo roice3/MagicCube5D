@@ -48,7 +48,7 @@ namespace MagicCube5D
 			this.textInput.Name = "textInput";
 			this.textInput.Size = new System.Drawing.Size( 328, 20 );
 			this.textInput.TabIndex = 1;
-			this.textInput.TextChanged += new System.EventHandler( this.textInput_TextChanged );
+			this.textInput.TextChanged += new System.EventHandler( this.Input_TextChanged );
 			// 
 			// btnOK
 			// 
@@ -59,7 +59,7 @@ namespace MagicCube5D
 			this.btnOK.TabIndex = 2;
 			this.btnOK.Text = "OK";
 			this.btnOK.UseVisualStyleBackColor = true;
-			this.btnOK.Click += new System.EventHandler( this.btnOK_Click );
+			this.btnOK.Click += new System.EventHandler( this.OK_Click );
 			// 
 			// btnCancel
 			// 
@@ -70,7 +70,7 @@ namespace MagicCube5D
 			this.btnCancel.TabIndex = 3;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
-			this.btnCancel.Click += new System.EventHandler( this.btnCancel_Click );
+			this.btnCancel.Click += new System.EventHandler( this.Cancel_Click );
 			// 
 			// InputDlg
 			// 

@@ -13,13 +13,13 @@ namespace MagicCube5D
         {
             InitializeComponent();
             m_settings = settings;
-            fillBox1();
+            FillBox1();
         }
 
         /// <summary>
         /// Gets the colors selected (as physical face integers).
         /// </summary>
-        public List<int> getSelectedColors()
+        public List<int> GetSelectedColors()
         {
             var ret = new List<int>();
             if (colorBox1.SelectedItem != null)
@@ -50,7 +50,7 @@ namespace MagicCube5D
             return ret;
         }
 
-        private void updateEnabled()
+        private void UpdateEnabled()
         {
             colorBox2.Enabled = colorBox1.SelectedItem != null;
             colorBox3.Enabled = colorBox2.SelectedItem != null;
@@ -59,7 +59,7 @@ namespace MagicCube5D
             btnOK.Enabled = colorBox2.Enabled;
         }
 
-        private Color getColor(int face)
+        private Color GetColor(int face)
         {
             switch (face)
             {
@@ -97,7 +97,7 @@ namespace MagicCube5D
             return Color.White;
         }
 
-        private void drawItem(object sender, DrawItemEventArgs e)
+        private void DrawItem(object sender, DrawItemEventArgs e)
         {
             var box = (ComboBox)sender;
 
@@ -116,7 +116,7 @@ namespace MagicCube5D
                 e.DrawFocusRectangle();
             }
 
-            var c = getColor(-1 == index ? (int)box.SelectedItem : (int)box.Items[e.Index]);
+            var c = GetColor(-1 == index ? (int)box.SelectedItem : (int)box.Items[e.Index]);
 
             var rect = e.Bounds;
             rect.Inflate(-2, -2);
@@ -124,32 +124,32 @@ namespace MagicCube5D
             e.Graphics.DrawRectangle(SystemPens.WindowText, rect);
         }
 
-        private void colorBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void ColorBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            drawItem(sender, e);
+            DrawItem(sender, e);
         }
 
-        private void colorBox2_DrawItem(object sender, DrawItemEventArgs e)
+        private void ColorBox2_DrawItem(object sender, DrawItemEventArgs e)
         {
-            drawItem(sender, e);
+            DrawItem(sender, e);
         }
 
-        private void colorBox3_DrawItem(object sender, DrawItemEventArgs e)
+        private void ColorBox3_DrawItem(object sender, DrawItemEventArgs e)
         {
-            drawItem(sender, e);
+            DrawItem(sender, e);
         }
 
-        private void colorBox4_DrawItem(object sender, DrawItemEventArgs e)
+        private void ColorBox4_DrawItem(object sender, DrawItemEventArgs e)
         {
-            drawItem(sender, e);
+            DrawItem(sender, e);
         }
 
-        private void colorBox5_DrawItem(object sender, DrawItemEventArgs e)
+        private void ColorBox5_DrawItem(object sender, DrawItemEventArgs e)
         {
-            drawItem(sender, e);
+            DrawItem(sender, e);
         }
 
-        private int findOppositeFace(int face)
+        private int FindOppositeFace(int face)
         {
             switch (face)
             {
@@ -188,7 +188,7 @@ namespace MagicCube5D
             return -1;
         }
 
-        private void fillBoxHelper(List<int> used, ComboBox box)
+        private void FillBoxHelper(List<int> used, ComboBox box)
         {
             box.Items.Clear();
 
@@ -211,105 +211,105 @@ namespace MagicCube5D
             }
         }
 
-        private void fillBox1()
+        private void FillBox1()
         {
             for (var i = 0; i < 10; i++)
             {
                 _ = colorBox1.Items.Add(i);
             }
 
-            updateEnabled();
+            UpdateEnabled();
         }
 
-        private void fillBox2()
+        private void FillBox2()
         {
             var used = new List<int>
             {
                 (int)colorBox1.SelectedItem,
-                findOppositeFace((int)colorBox1.SelectedItem)
+                FindOppositeFace((int)colorBox1.SelectedItem)
             };
-            fillBoxHelper(used, colorBox2);
-            updateEnabled();
+            FillBoxHelper(used, colorBox2);
+            UpdateEnabled();
         }
 
-        private void fillBox3()
+        private void FillBox3()
         {
             var used = new List<int>
             {
                 (int)colorBox1.SelectedItem,
-                findOppositeFace((int)colorBox1.SelectedItem),
+                FindOppositeFace((int)colorBox1.SelectedItem),
                 (int)colorBox2.SelectedItem,
-                findOppositeFace((int)colorBox2.SelectedItem)
+                FindOppositeFace((int)colorBox2.SelectedItem)
             };
-            fillBoxHelper(used, colorBox3);
-            updateEnabled();
+            FillBoxHelper(used, colorBox3);
+            UpdateEnabled();
         }
 
-        private void fillBox4()
+        private void FillBox4()
         {
             var used = new List<int>
             {
                 (int)colorBox1.SelectedItem,
-                findOppositeFace((int)colorBox1.SelectedItem),
+                FindOppositeFace((int)colorBox1.SelectedItem),
                 (int)colorBox2.SelectedItem,
-                findOppositeFace((int)colorBox2.SelectedItem),
+                FindOppositeFace((int)colorBox2.SelectedItem),
                 (int)colorBox3.SelectedItem,
-                findOppositeFace((int)colorBox3.SelectedItem)
+                FindOppositeFace((int)colorBox3.SelectedItem)
             };
-            fillBoxHelper(used, colorBox4);
-            updateEnabled();
+            FillBoxHelper(used, colorBox4);
+            UpdateEnabled();
         }
 
-        private void fillBox5()
+        private void FillBox5()
         {
             var used = new List<int>
             {
                 (int)colorBox1.SelectedItem,
-                findOppositeFace((int)colorBox1.SelectedItem),
+                FindOppositeFace((int)colorBox1.SelectedItem),
                 (int)colorBox2.SelectedItem,
-                findOppositeFace((int)colorBox2.SelectedItem),
+                FindOppositeFace((int)colorBox2.SelectedItem),
                 (int)colorBox3.SelectedItem,
-                findOppositeFace((int)colorBox3.SelectedItem),
+                FindOppositeFace((int)colorBox3.SelectedItem),
                 (int)colorBox4.SelectedItem,
-                findOppositeFace((int)colorBox4.SelectedItem)
+                FindOppositeFace((int)colorBox4.SelectedItem)
             };
-            fillBoxHelper(used, colorBox5);
-            updateEnabled();
+            FillBoxHelper(used, colorBox5);
+            UpdateEnabled();
         }
 
-        private void colorBox1_SelectedValueChanged(object sender, EventArgs e)
+        private void ColorBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             colorBox3.Items.Clear();
             colorBox4.Items.Clear();
             colorBox5.Items.Clear();
-            fillBox2();
+            FillBox2();
         }
 
-        private void colorBox2_SelectedValueChanged(object sender, EventArgs e)
+        private void ColorBox2_SelectedValueChanged(object sender, EventArgs e)
         {
             colorBox4.Items.Clear();
             colorBox5.Items.Clear();
-            fillBox3();
+            FillBox3();
         }
 
-        private void colorBox3_SelectedValueChanged(object sender, EventArgs e)
+        private void ColorBox3_SelectedValueChanged(object sender, EventArgs e)
         {
             colorBox5.Items.Clear();
-            fillBox4();
+            FillBox4();
         }
 
-        private void colorBox4_SelectedValueChanged(object sender, EventArgs e)
+        private void ColorBox4_SelectedValueChanged(object sender, EventArgs e)
         {
-            fillBox5();
+            FillBox5();
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Close();
