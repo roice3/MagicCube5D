@@ -67,7 +67,6 @@ namespace MagicCube5D
     public partial class MainFrame : Form
     {
         private const string DefaultSettingsName = "-- Default --";
-        private DrawSurface surface;
         private ICube cube;
 
         private GuiSettings lastSettings = new GuiSettings();
@@ -77,11 +76,11 @@ namespace MagicCube5D
             InitializeComponent();
 
             // setup the drawing surface
-            this.surface = new DrawSurface();
-            this.surface.Location = this.panelMain.Location;
-            this.surface.Size = this.panelMain.Size;
-            this.surface.Anchor = this.panelMain.Anchor;
-            this.Controls.Add(this.surface);
+            this.DrawSurface = new DrawSurface();
+            this.DrawSurface.Location = this.panelMain.Location;
+            this.DrawSurface.Size = this.panelMain.Size;
+            this.DrawSurface.Anchor = this.panelMain.Anchor;
+            this.Controls.Add(this.DrawSurface);
 
             // setup tags for sliders
             this.track5dDist.Tag = CubeParameter.Perspective5d;
@@ -154,10 +153,7 @@ namespace MagicCube5D
             this.cube = cube;
         }
 
-        public DrawSurface DrawSurface
-        {
-            get { return this.surface; }
-        }
+        public DrawSurface DrawSurface { get; }
 
         private GuiSettings Settings
         {
