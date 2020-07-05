@@ -76,10 +76,12 @@ namespace MagicCube5D
             InitializeComponent();
 
             // setup the drawing surface
-            this.DrawSurface = new DrawSurface();
-            this.DrawSurface.Location = this.panelMain.Location;
-            this.DrawSurface.Size = this.panelMain.Size;
-            this.DrawSurface.Anchor = this.panelMain.Anchor;
+            this.DrawSurface = new DrawSurface
+            {
+                Location = this.panelMain.Location,
+                Size = this.panelMain.Size,
+                Anchor = this.panelMain.Anchor
+            };
             this.Controls.Add(this.DrawSurface);
 
             // setup tags for sliders
@@ -294,8 +296,10 @@ namespace MagicCube5D
             // make sure the "default" settings exist
             if (defSettings == null)
             {
-                defSettings = new GuiSettings();
-                defSettings.Name = DefaultSettingsName;
+                defSettings = new GuiSettings
+                {
+                    Name = DefaultSettingsName
+                };
                 this.comboSettings.Items.Add(defSettings);
             }
 
@@ -579,8 +583,10 @@ namespace MagicCube5D
         private void btnEditColors_Click(object sender, EventArgs e)
         {
             var current = this.Settings;
-            var dlg = new PropertyDlg();
-            dlg.EditObject = current;
+            var dlg = new PropertyDlg
+            {
+                EditObject = current
+            };
             if (DialogResult.OK != dlg.ShowDialog(this))
                 return;
             this.Settings = current;
