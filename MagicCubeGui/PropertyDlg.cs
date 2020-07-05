@@ -9,10 +9,10 @@ namespace MagicCube5D
             InitializeComponent();
         }
 
-		public object EditObject
-		{
-			get { return this.properties.SelectedObject; }
-			set { this.properties.SelectedObject = value; }
-		}
-	}
+        public object EditObject
+        {
+            get { return properties.SelectedObject; }
+            set { properties.SelectedObject = value; }
+        }
+    }
 }

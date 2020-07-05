@@ -16,7 +16,7 @@ namespace MagicCube5D
         {
             // write all of our props
             var outFile = new StreamWriter(File.OpenWrite(file));
-            foreach (PropertyDescriptor p in this.PersistProps)
+            foreach (PropertyDescriptor p in PersistProps)
             {
                 var value = p.GetValue(this);
                 var tc = TypeDescriptor.GetConverter(value);
@@ -38,7 +38,7 @@ namespace MagicCube5D
             }
 
             // convert each back to its original type
-            foreach (PropertyDescriptor p in this.PersistProps)
+            foreach (PropertyDescriptor p in PersistProps)
             {
                 if (!values.ContainsKey(p.Name))
                     continue;

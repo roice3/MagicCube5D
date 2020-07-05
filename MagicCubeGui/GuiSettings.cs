@@ -142,18 +142,18 @@ namespace MagicCube5D
         public override void Save(string file)
         {
             base.Save(file);
-            this.Path = file;
+            Path = file;
         }
 
         public override void Load(string file)
         {
             base.Load(file);
-            this.Path = file;
+            Path = file;
         }
 
         public override string ToString()
         {
-            return this.Name;
+            return Name;
         }
 
         public GuiSettings Clone()

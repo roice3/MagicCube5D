@@ -22,26 +22,26 @@ namespace MagicCube5D
         public List<int> getSelectedColors()
         {
             var ret = new List<int>();
-            if (this.colorBox1.SelectedItem != null)
-                ret.Add((int)this.colorBox1.SelectedItem);
-            if (this.colorBox2.SelectedItem != null)
-                ret.Add((int)this.colorBox2.SelectedItem);
-            if (this.colorBox3.SelectedItem != null)
-                ret.Add((int)this.colorBox3.SelectedItem);
-            if (this.colorBox4.SelectedItem != null)
-                ret.Add((int)this.colorBox4.SelectedItem);
-            if (this.colorBox5.SelectedItem != null)
-                ret.Add((int)this.colorBox5.SelectedItem);
+            if (colorBox1.SelectedItem != null)
+                ret.Add((int)colorBox1.SelectedItem);
+            if (colorBox2.SelectedItem != null)
+                ret.Add((int)colorBox2.SelectedItem);
+            if (colorBox3.SelectedItem != null)
+                ret.Add((int)colorBox3.SelectedItem);
+            if (colorBox4.SelectedItem != null)
+                ret.Add((int)colorBox4.SelectedItem);
+            if (colorBox5.SelectedItem != null)
+                ret.Add((int)colorBox5.SelectedItem);
             return ret;
         }
 
         private void updateEnabled()
         {
-            this.colorBox2.Enabled = this.colorBox1.SelectedItem != null;
-            this.colorBox3.Enabled = this.colorBox2.SelectedItem != null;
-            this.colorBox4.Enabled = this.colorBox3.SelectedItem != null;
-            this.colorBox5.Enabled = this.colorBox4.SelectedItem != null;
-            this.btnOK.Enabled = this.colorBox2.Enabled;
+            colorBox2.Enabled = colorBox1.SelectedItem != null;
+            colorBox3.Enabled = colorBox2.SelectedItem != null;
+            colorBox4.Enabled = colorBox3.SelectedItem != null;
+            colorBox5.Enabled = colorBox4.SelectedItem != null;
+            btnOK.Enabled = colorBox2.Enabled;
         }
 
         private Color getColor(int face)
@@ -193,76 +193,76 @@ namespace MagicCube5D
         private void fillBox1()
         {
             for (var i = 0; i < 10; i++)
-                this.colorBox1.Items.Add(i);
+                colorBox1.Items.Add(i);
             updateEnabled();
         }
 
         private void fillBox2()
         {
             var used = new List<int>();
-            used.Add((int)this.colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
-            fillBoxHelper(used, this.colorBox2);
+            used.Add((int)colorBox1.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
+            fillBoxHelper(used, colorBox2);
             updateEnabled();
         }
 
         private void fillBox3()
         {
             var used = new List<int>();
-            used.Add((int)this.colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
-            used.Add((int)this.colorBox2.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox2.SelectedItem));
-            fillBoxHelper(used, this.colorBox3);
+            used.Add((int)colorBox1.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
+            used.Add((int)colorBox2.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox2.SelectedItem));
+            fillBoxHelper(used, colorBox3);
             updateEnabled();
         }
 
         private void fillBox4()
         {
             var used = new List<int>();
-            used.Add((int)this.colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
-            used.Add((int)this.colorBox2.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox2.SelectedItem));
-            used.Add((int)this.colorBox3.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox3.SelectedItem));
-            fillBoxHelper(used, this.colorBox4);
+            used.Add((int)colorBox1.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
+            used.Add((int)colorBox2.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox2.SelectedItem));
+            used.Add((int)colorBox3.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox3.SelectedItem));
+            fillBoxHelper(used, colorBox4);
             updateEnabled();
         }
 
         private void fillBox5()
         {
             var used = new List<int>();
-            used.Add((int)this.colorBox1.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox1.SelectedItem));
-            used.Add((int)this.colorBox2.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox2.SelectedItem));
-            used.Add((int)this.colorBox3.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox3.SelectedItem));
-            used.Add((int)this.colorBox4.SelectedItem);
-            used.Add(findOppositeFace((int)this.colorBox4.SelectedItem));
-            fillBoxHelper(used, this.colorBox5);
+            used.Add((int)colorBox1.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox1.SelectedItem));
+            used.Add((int)colorBox2.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox2.SelectedItem));
+            used.Add((int)colorBox3.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox3.SelectedItem));
+            used.Add((int)colorBox4.SelectedItem);
+            used.Add(findOppositeFace((int)colorBox4.SelectedItem));
+            fillBoxHelper(used, colorBox5);
             updateEnabled();
         }
 
         private void colorBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.colorBox3.Items.Clear();
-            this.colorBox4.Items.Clear();
-            this.colorBox5.Items.Clear();
+            colorBox3.Items.Clear();
+            colorBox4.Items.Clear();
+            colorBox5.Items.Clear();
             fillBox2();
         }
 
         private void colorBox2_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.colorBox4.Items.Clear();
-            this.colorBox5.Items.Clear();
+            colorBox4.Items.Clear();
+            colorBox5.Items.Clear();
             fillBox3();
         }
 
         private void colorBox3_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.colorBox5.Items.Clear();
+            colorBox5.Items.Clear();
             fillBox4();
         }
 
@@ -273,13 +273,13 @@ namespace MagicCube5D
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.Cancel;
             Close();
         }
     }
