@@ -17,7 +17,7 @@ typedef unsigned int uint;
 
 #define DO_OP_VECTOR_INPLACE( operation ) \
 	for( int i=0; i<Size; ++i ) \
-        m_components[i] operation= rhs.m_components[i]; \
+        m_components[i] operation##= rhs.m_components[i]; \
 	CheckVector(); \
 	return( *this );
 
@@ -30,7 +30,7 @@ typedef unsigned int uint;
 
 #define DO_OP_SCALAR_INPLACE( operation ) \
 	for( int i=0; i<Size; ++i ) \
-        m_components[i] operation= a; \
+        m_components[i] operation##= a; \
 	CheckVector(); \
 	return( *this );
 
