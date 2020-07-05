@@ -168,10 +168,23 @@ namespace MagicCube5D
                 lastSettings.StickerSize = trackStickerSize.Value;
                 lastSettings.FaceSeparation = traceFaceSeparation.Value;
                 lastSettings.RotationRate = trackRotationRate.Value;
-                if (menuStereoNone.Checked) lastSettings.StereoMode = 0;
-                else if (menuStereoCrossEyed.Checked) lastSettings.StereoMode = 1;
-                else if (menuStereoAnaglyph.Checked) lastSettings.StereoMode = 2;
-                else if (menuStereoAnaglyphNoColor.Checked) lastSettings.StereoMode = 3;
+                if (menuStereoNone.Checked)
+                {
+                    lastSettings.StereoMode = 0;
+                }
+                else if (menuStereoCrossEyed.Checked)
+                {
+                    lastSettings.StereoMode = 1;
+                }
+                else if (menuStereoAnaglyph.Checked)
+                {
+                    lastSettings.StereoMode = 2;
+                }
+                else if (menuStereoAnaglyphNoColor.Checked)
+                {
+                    lastSettings.StereoMode = 3;
+                }
+
                 lastSettings.StereoSeparation = trackStereoSeparation.Value;
                 lastSettings.Face1 = checkFace1.Checked;
                 lastSettings.Face2 = checkFace2.Checked;
@@ -280,7 +293,9 @@ namespace MagicCube5D
 
             // load all of our our macros.
             foreach (var s in cube.GetMacroNames())
+            {
                 _ = listMacros.Items.Add(s);
+            }
 
             // load all of our saved settings
             GuiSettings defSettings = null;
@@ -290,7 +305,9 @@ namespace MagicCube5D
                 settings.Load(s);
                 _ = comboSettings.Items.Add(settings);
                 if (settings.Name == DefaultSettingsName)
+                {
                     defSettings = settings;
+                }
             }
 
             // make sure the "default" settings exist
@@ -314,14 +331,18 @@ namespace MagicCube5D
         {
             var control = (TrackBar)sender;
             if (cube != null)
+            {
                 cube.SetParameter((CubeParameter)control.Tag, control.Value);
+            }
         }
 
         private void checkFace_CheckedChanged(object sender, EventArgs e)
         {
             var control = (CheckBox)sender;
             if (cube != null)
+            {
                 cube.EnableFace((int)control.Tag, control.Checked);
+            }
         }
 
         private void btnRotate_MouseClick(object sender, MouseEventArgs e)
@@ -341,7 +362,10 @@ namespace MagicCube5D
             {
                 var face = comboFace.SelectedIndex;
                 if (10 == face)
+                {
                     face = -1;
+                }
+
                 cube.Rotate(axes.a1, axes.a2, face, 1);
             }
         }
@@ -398,7 +422,9 @@ namespace MagicCube5D
             using (var dlg = new FindDlg(Settings))
             {
                 if (DialogResult.OK != dlg.ShowDialog(this))
+                {
                     return;
+                }
 
                 var colors = dlg.getSelectedColors();
                 cube.HighlightCubies(colors);
@@ -422,20 +448,30 @@ namespace MagicCube5D
 
             // Cycle the check state.
             if (item.CheckState == CheckState.Indeterminate)
+            {
                 item.CheckState = CheckState.Unchecked;
+            }
             else if (item.CheckState == CheckState.Unchecked)
+            {
                 item.CheckState = CheckState.Checked;
+            }
             else if (item.CheckState == CheckState.Checked)
+            {
                 item.CheckState = CheckState.Indeterminate;
+            }
         }
 
         // Get the axis index for a face.
         private int getFaceAxisIndex(int face)
         {
             if (10 == face)
+            {
                 return -1;
+            }
             else
+            {
                 return face / 2;
+            }
         }
 
         // Helper for enabling buttons.
@@ -445,9 +481,13 @@ namespace MagicCube5D
             var axes = (Axes)button.Tag;
             if (axes.a1 == invalidAxis ||
                 axes.a2 == invalidAxis)
+            {
                 button.Enabled = false;
+            }
             else
+            {
                 button.Enabled = true;
+            }
         }
 
         private void comboFace_SelectedIndexChanged(object sender, EventArgs e)
@@ -507,7 +547,9 @@ namespace MagicCube5D
             {
                 var index = listMacros.SelectedIndices[0];
                 if (e.Label != null)
+                {
                     cube.RenameMacro(index, e.Label);
+                }
             }
         }
 
@@ -528,9 +570,15 @@ namespace MagicCube5D
                 dlg.Caption = "Save Settings";
                 dlg.Prompt = "Please provide a name for the new saved settings.";
                 if (comboSettings.SelectedItem != null)
+                {
                     dlg.Value = ((GuiSettings)comboSettings.SelectedItem).Name;
+                }
+
                 if (DialogResult.OK != dlg.ShowDialog(this))
+                {
                     return;
+                }
+
                 foreach (GuiSettings old in comboSettings.Items)
                 {
                     if (old.Name == dlg.Value)
@@ -547,11 +595,17 @@ namespace MagicCube5D
                 // find where we can save it
                 var baseFile = s.Name;
                 foreach (var c in Path.GetInvalidFileNameChars())
+                {
                     baseFile = baseFile.Replace(c, '_');
+                }
+
                 var final = baseFile + ".settings";
                 var next = 1;
                 while (System.IO.File.Exists(final))
+                {
                     final = baseFile + next++ + ".settings";
+                }
+
                 s.Save(final);
 
                 // add it to the list
@@ -563,10 +617,16 @@ namespace MagicCube5D
         private void btnSettingsDelete_Click(object sender, EventArgs e)
         {
             if (comboSettings.SelectedItem == null)
+            {
                 return;
+            }
+
             var settings = (GuiSettings)comboSettings.SelectedItem;
             if (settings.Name == DefaultSettingsName)
+            {
                 return;
+            }
+
             comboSettings.Items.Remove(settings);
             File.Delete(settings.Path);
         }
@@ -574,7 +634,10 @@ namespace MagicCube5D
         private void comboSettings_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboSettings.SelectedItem == null)
+            {
                 return;
+            }
+
             var settings = (GuiSettings)comboSettings.SelectedItem;
             btnSettingsDelete.Enabled = settings.Name != DefaultSettingsName;
             Settings = settings;
@@ -588,7 +651,10 @@ namespace MagicCube5D
                 EditObject = current
             };
             if (DialogResult.OK != dlg.ShowDialog(this))
+            {
                 return;
+            }
+
             Settings = current;
         }
 
@@ -638,7 +704,10 @@ namespace MagicCube5D
         protected override bool IsInputKey(Keys keyData)
         {
             if (keyData == Keys.Left || keyData == Keys.Right || keyData == Keys.Up || keyData == Keys.Down)
+            {
                 return true;
+            }
+
             return base.IsInputKey(keyData);
         }
 

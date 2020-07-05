@@ -41,7 +41,10 @@ namespace MagicCube5D
             foreach (PropertyDescriptor p in PersistProps)
             {
                 if (!values.ContainsKey(p.Name))
+                {
                     continue;
+                }
+
                 var tc = TypeDescriptor.GetConverter(p.PropertyType);
                 try
                 {

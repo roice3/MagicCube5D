@@ -23,15 +23,30 @@ namespace MagicCube5D
         {
             var ret = new List<int>();
             if (colorBox1.SelectedItem != null)
+            {
                 ret.Add((int)colorBox1.SelectedItem);
+            }
+
             if (colorBox2.SelectedItem != null)
+            {
                 ret.Add((int)colorBox2.SelectedItem);
+            }
+
             if (colorBox3.SelectedItem != null)
+            {
                 ret.Add((int)colorBox3.SelectedItem);
+            }
+
             if (colorBox4.SelectedItem != null)
+            {
                 ret.Add((int)colorBox4.SelectedItem);
+            }
+
             if (colorBox5.SelectedItem != null)
+            {
                 ret.Add((int)colorBox5.SelectedItem);
+            }
+
             return ret;
         }
 
@@ -89,13 +104,17 @@ namespace MagicCube5D
             // -1 index references what to draw for the selected item.
             var index = e.Index;
             if (index == -1 && box.SelectedItem == null)
+            {
                 return;
+            }
 
             var focused = (e.State & DrawItemState.Focus) == DrawItemState.Focus;
 
             e.DrawBackground();
             if (focused)
+            {
                 e.DrawFocusRectangle();
+            }
 
             var c = getColor(-1 == index ? (int)box.SelectedItem : (int)box.Items[e.Index]);
 
@@ -186,14 +205,19 @@ namespace MagicCube5D
                 }
 
                 if (add)
+                {
                     _ = box.Items.Add(i);
+                }
             }
         }
 
         private void fillBox1()
         {
             for (var i = 0; i < 10; i++)
+            {
                 _ = colorBox1.Items.Add(i);
+            }
+
             updateEnabled();
         }
 
