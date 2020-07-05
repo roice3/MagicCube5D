@@ -280,7 +280,7 @@ namespace MagicCube5D
 
             // load all of our our macros.
             foreach (var s in cube.GetMacroNames())
-                listMacros.Items.Add(s);
+                _ = listMacros.Items.Add(s);
 
             // load all of our saved settings
             GuiSettings defSettings = null;
@@ -288,7 +288,7 @@ namespace MagicCube5D
             {
                 var settings = new GuiSettings();
                 settings.Load(s);
-                comboSettings.Items.Add(settings);
+                _ = comboSettings.Items.Add(settings);
                 if (settings.Name == DefaultSettingsName)
                     defSettings = settings;
             }
@@ -300,7 +300,7 @@ namespace MagicCube5D
                 {
                     Name = DefaultSettingsName
                 };
-                comboSettings.Items.Add(defSettings);
+                _ = comboSettings.Items.Add(defSettings);
             }
 
             // select the default settings
@@ -476,7 +476,7 @@ namespace MagicCube5D
         private void btnStopMacro_Click(object sender, EventArgs e)
         {
             cube.StopMacroRecord();
-            listMacros.Items.Add("New Macro");
+            _ = listMacros.Items.Add("New Macro");
             btnStartMacro.Enabled = true;
             btnStopMacro.Enabled = false;
         }
@@ -555,7 +555,7 @@ namespace MagicCube5D
                 s.Save(final);
 
                 // add it to the list
-                comboSettings.Items.Add(s);
+                _ = comboSettings.Items.Add(s);
                 comboSettings.SelectedItem = s;
             }
         }

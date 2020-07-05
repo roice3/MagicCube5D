@@ -186,14 +186,14 @@ namespace MagicCube5D
                 }
 
                 if (add)
-                    box.Items.Add(i);
+                    _ = box.Items.Add(i);
             }
         }
 
         private void fillBox1()
         {
             for (var i = 0; i < 10; i++)
-                colorBox1.Items.Add(i);
+                _ = colorBox1.Items.Add(i);
             updateEnabled();
         }
 
