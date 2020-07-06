@@ -256,11 +256,11 @@ void CubeFrame::MouseUp(System::Object ^ sender,
     // Left button click.
     if (e->Button == System::Windows::Forms::MouseButtons::Left) {
         bool rotateStarted = false;
-        if (CCube5D::READY_FOR_FIRST == m_renderer->m_cube.m_clickState)
+        if (m_renderer->m_cube.m_clickState == CCube5D::READY_FOR_FIRST)
             rotateStarted = m_renderer->m_cube.handleFirstClick(CtrlDown());
         else
             rotateStarted = m_renderer->m_cube.handleSecondClick(
-                    CtrlDown(), 0 == m_slicemask ? 1 : m_slicemask);
+                    CtrlDown(), m_slicemask == 0 ? 1 : m_slicemask);
         if (rotateStarted) {
             m_currentAngle = 0;
             m_animating = true;
@@ -374,7 +374,7 @@ void CubeFrame::SetParameter(CubeParameter param, int value) {
             // Alter the viewing distance depending on the mode.
             CVector3D viewVector = m_renderer->m_viewLookfrom;
             viewVector.normalize();
-            if (STEREO_CROSS_EYED == m_renderer->m_cube.m_settings.m_stereoMode)
+            if (m_renderer->m_cube.m_settings.m_stereoMode == STEREO_CROSS_EYED)
                 viewVector *= 170;
             else
                 viewVector *= 85;
@@ -434,7 +434,7 @@ void CubeFrame::ColorFace(int face, System::Drawing::Color c) {
     // Setting background color?
     CColor color((float)c.R / 255, (float)c.G / 255, (float)c.B / 255,
                  (float)c.A / 255);
-    if (10 == face)
+    if (face == 10)
         m_renderer->setBackgroundColor(color);
     else
         m_renderer->m_cube.setFaceColor(face, color);
@@ -447,7 +447,7 @@ void CubeFrame::Rotate(int a1, int a2, int face, int dummy) {
     twist.m_rotationAxis1 = a1;
     twist.m_rotationAxis2 = a2;
     twist.m_rotationFace = face;
-    twist.m_slicemask = 0 == m_slicemask ? 1 : m_slicemask;
+    twist.m_slicemask = m_slicemask == 0 ? 1 : m_slicemask;
     internalRotate(twist);
 }
 

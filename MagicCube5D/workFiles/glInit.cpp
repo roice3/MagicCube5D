@@ -70,7 +70,7 @@ BOOL CGlInit::setupPixelFormat(HDC hContext) {
     // Choose the pixel format.
     int nPixelFormatChosen = -1;
     nPixelFormatChosen = ChoosePixelFormat(hContext, &pfd);
-    if (0 == nPixelFormatChosen) {
+    if (nPixelFormatChosen == 0) {
         displayErrorMessage("ChoosePixelFormat");
         return FALSE;
     }

@@ -287,7 +287,7 @@ struct compare5D : public std::binary_function<CVector5D, CVector5D, bool> {
 //		 where getFaceFromOffset() function is called to get face as int.
 //		 It had been so long I forgot about that function, and changing this
 //		 might be worthwhile if speed is improved.  Maybe it is no big deal
-//though.
+// though.
 typedef std::map<CVector5D, int, compare5D> CubieMap;
 typedef std::map<CVector5D, int, compare5D>::const_iterator CubeMapIterator;
 
@@ -379,7 +379,7 @@ void findCurrentFaceColorsEvenHelper(const std::vector<SSticker>& stickers,
     searchTrackedColors(colorTracker, foundColors, foundFaces);
     searchTrackedColors(colorTracker, foundColors,
                         foundFaces);  // We could be more efficient, but this will work.
-    assert(5 == foundColors.size() && 5 == foundFaces.size());
+    assert(foundColors.size() == 5 && foundFaces.size() == 5);
 
     // Now setup our color map.
     int numSwitched = 0;
@@ -391,10 +391,11 @@ void findCurrentFaceColorsEvenHelper(const std::vector<SSticker>& stickers,
 
         // See if we need to switch them.
         bool needToSwitch = false;
-        if (5 == i) {
+        if (i == 5) {
 
             // There can only be an even number of switches!
-            if (0 == numSwitched % 2)
+            // TODO: check if no parentheses is a bug
+            if (numSwitched % 2 == 0)
                 needToSwitch = false;
             else
                 needToSwitch = true;
@@ -457,8 +458,8 @@ void findCurrentFaceColors(const std::vector<SSticker>& stickers,
 }
 
 int getNumOfCubieType(int numColors, int m_n) {
-    if (2 == m_n) {
-        if (5 == numColors) return 32;
+    if (m_n == 2) {
+        if (numColors == 5) return 32;
 
         return 0;
     }

@@ -92,7 +92,7 @@ void CCube5D::render(const CVector3D& lookFrom) {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
             glDepthMask(GL_FALSE);
 
-            if (STEREO_ANAGLYPH == m_settings.m_stereoMode) {
+            if (m_settings.m_stereoMode == STEREO_ANAGLYPH) {
                 m_useStereoColor = false;
                 renderCube();
             }
@@ -304,7 +304,7 @@ void CCube5D::executeMacro(int index, bool reverse) {
 void CCube5D::resetClickState() {
 
     // If we are already reset, clear cubies that we may be highlighting.
-    if (READY_FOR_FIRST == m_clickState) m_cubiesToHighlight.clear();
+    if (m_clickState == READY_FOR_FIRST) m_cubiesToHighlight.clear();
 
     m_clickState = READY_FOR_FIRST;
     m_firstClickedSticker = m_selectedGotoSticker = SSticker();
@@ -382,7 +382,7 @@ bool CCube5D::handleControlClick() {
 
     // The first rotation axis is determined by the face of the selected sticker.
     m_selectedSticker.m_offset.getUnitValuedAxis(rotation.m_rotationAxis1);
-    if (4 == rotation.m_rotationAxis1) {
+    if (rotation.m_rotationAxis1 == 4) {
 
         // XXX - Checking code should avoid this.
         return false;
@@ -485,7 +485,7 @@ void CCube5D::getGotoStickers() {
     }
 
     // There should be 6 of these.
-    assert(6 == m_gotoStickers.size());
+    assert(m_gotoStickers.size() == 6);
 }
 
 void CCube5D::save(bool saveas) {
@@ -517,7 +517,7 @@ void CCube5D::load() {
 
 void CCube5D::selectSticker(const CVector3D& linep1, const CVector3D& linep2,
                             bool shift) {
-    if (READY_FOR_SECOND == m_clickState) {
+    if (m_clickState == READY_FOR_SECOND) {
         m_selectedSticker = SSticker();
         selectStickerHelper(linep1, linep2, shift, m_gotoStickers, false,
                             m_selectedGotoSticker);
@@ -591,7 +591,7 @@ void CCube5D::scramble(int numTwists) {
     m_scrambled = numTwists >= 100;
 
     // XXX - a little hackish, since I'm checking a hardcoded value of a full scramble
-    if (m_settings.m_n > 5 && 100 == numTwists) numTwists *= 2;
+    if (m_settings.m_n > 5 && numTwists == 100) numTwists *= 2;
 
     for (int i = 0; i < numTwists; i++) {
         m_currentTwist.m_rotationFace = getRandomInt(9);
@@ -768,7 +768,7 @@ void CCube5D::renderCube() {
 
         // Check sticker visibilities to see if we need to draw this one.
         // If we are not rotating, only the current visibility makes a difference.
-        if (0 == m_rotation) {
+        if (m_rotation == 0) {
 
             // Force these to visible even if they are not on a visible face.
             if (m_settings.m_showAllCubieStickers &&
@@ -809,7 +809,7 @@ void CCube5D::renderCube() {
             int rAxis = -1;
             std::vector<double> dummy;
             getRotationInfo( rAxis, dummy );
-            bool rotate = -1 == m_currentTwist.m_rotationFace || f == rAxis ;
+            bool rotate = m_currentTwist.m_rotationFace == -1 || f == rAxis ;
 
             glColor4d( 1,1,1,1 );
             glLineWidth( 2.0 );
@@ -821,7 +821,7 @@ void CCube5D::renderCube() {
     */
 
     // Draw lines for click visualizations.
-    if (READY_FOR_SECOND == m_clickState) {
+    if (m_clickState == READY_FOR_SECOND) {
         glColor4d(1, 1, 1, 1);
 
         // Get the first clicked sticker 5-center.
@@ -891,7 +891,7 @@ void CCube5D::drawSticker(const SSticker& sticker, bool rotate,
     // Handle highlighting.
     bool highlightHigh = false;
     EStickerAccent accent = NORMAL;
-    if (READY_FOR_SECOND == m_clickState) {
+    if (m_clickState == READY_FOR_SECOND) {
 
         // High highlight the first clicked sticker and the goto sticker.
         highlightHigh =
@@ -1191,7 +1191,7 @@ void CCube5D::roundComponents(CVector5D& vector) const {
 void CCube5D::getRotationInfo(int& axis, std::vector<double>& values) const {
 
     // Are we just going to rotate everything?
-    if (-1 == m_currentTwist.m_rotationFace) return;
+    if (m_currentTwist.m_rotationFace == -1) return;
 
     // Get the unit valued axis of the rotation face.
     CVector5D rotationFace;
@@ -1202,7 +1202,7 @@ void CCube5D::getRotationInfo(int& axis, std::vector<double>& values) const {
     // This code special-cases the common case where the slicemask is 1.
     double rotationFaceComponent = rotationFace.m_components[axis];
     if (1 != m_currentTwist.m_slicemask) {
-        bool add = -1 == rotationFaceComponent;
+        bool add = rotationFaceComponent == -1;
 
         // This is the increment between stickers.
         double increment = m_settings.getIncrementBetweenStickers();
@@ -1238,7 +1238,7 @@ bool CCube5D::shouldWeRotate(const CVector5D& cubie, int axis,
                              const std::vector<double>& values) const {
 
     // View rotation?
-    if (-1 == m_currentTwist.m_rotationFace) return true;
+    if (m_currentTwist.m_rotationFace == -1) return true;
 
     // Sticker part of the twist?
     for (uint i = 0; i < values.size(); i++) {

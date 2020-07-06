@@ -116,7 +116,7 @@ namespace MagicCube5D
                 e.DrawFocusRectangle();
             }
 
-            var c = GetColor(-1 == index ? (int)box.SelectedItem : (int)box.Items[e.Index]);
+            var c = GetColor(index == -1 ? (int)box.SelectedItem : (int)box.Items[e.Index]);
 
             var rect = e.Bounds;
             rect.Inflate(-2, -2);

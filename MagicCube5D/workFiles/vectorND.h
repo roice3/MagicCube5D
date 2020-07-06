@@ -36,8 +36,8 @@ typedef unsigned int uint;
 
 inline bool isNaN(double value) {
     int floatType = _fpclass(value);
-    return _FPCLASS_SNAN == floatType || _FPCLASS_QNAN == floatType ||
-           _FPCLASS_NINF == floatType || _FPCLASS_PINF == floatType;
+    return floatType == _FPCLASS_SNAN || floatType == _FPCLASS_QNAN ||
+           floatType == _FPCLASS_NINF || floatType == _FPCLASS_PINF;
 }
 
 template <int nSize>

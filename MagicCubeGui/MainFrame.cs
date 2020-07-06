@@ -212,10 +212,10 @@ namespace MagicCube5D
                 trackStickerSize.Value = value.StickerSize;
                 traceFaceSeparation.Value = value.FaceSeparation;
                 trackRotationRate.Value = value.RotationRate;
-                menuStereoNone.Checked = 0 == value.StereoMode;
-                menuStereoCrossEyed.Checked = 1 == value.StereoMode;
-                menuStereoAnaglyph.Checked = 2 == value.StereoMode;
-                menuStereoAnaglyphNoColor.Checked = 3 == value.StereoMode;
+                menuStereoNone.Checked = value.StereoMode == 0;
+                menuStereoCrossEyed.Checked = value.StereoMode == 1;
+                menuStereoAnaglyph.Checked = value.StereoMode == 2;
+                menuStereoAnaglyphNoColor.Checked = value.StereoMode == 3;
                 trackStereoSeparation.Value = value.StereoSeparation;
                 checkFace1.Checked = value.Face1;
                 checkFace2.Checked = value.Face2;
@@ -264,7 +264,7 @@ namespace MagicCube5D
             labelFive.Text = string.Format("   5-coloreds:   {0} of {1} ({2:F1}%)", s5, n5, 100.0 * s5 / n5);
 
             // Special case code for 2^5 here.
-            if (0 == n0)
+            if (n0 == 0)
             {
                 labelZero.Text = string.Format("   0-coloreds:   {0} of {1}", s0, n0);
                 labelOne.Text = string.Format("   1-coloreds:   {0} of {1}", s1, n1);
@@ -361,7 +361,7 @@ namespace MagicCube5D
             if (cube != null)
             {
                 var face = comboFace.SelectedIndex;
-                if (10 == face)
+                if (face == 10)
                 {
                     face = -1;
                 }
@@ -464,7 +464,7 @@ namespace MagicCube5D
         // Get the axis index for a face.
         private int GetFaceAxisIndex(int face)
         {
-            return 10 == face ? -1 : face / 2;
+            return face == 10 ? -1 : face / 2;
         }
 
         // Helper for enabling buttons.
@@ -508,7 +508,7 @@ namespace MagicCube5D
 
         private void RenameMacro_Click(object sender, EventArgs e)
         {
-            if (1 == listMacros.SelectedIndices.Count)
+            if (listMacros.SelectedIndices.Count == 1)
             {
                 var index = listMacros.SelectedIndices[0];
                 var item = listMacros.Items[index];
@@ -518,7 +518,7 @@ namespace MagicCube5D
 
         private void DeleteMacro_Click(object sender, EventArgs e)
         {
-            if (1 == listMacros.SelectedIndices.Count)
+            if (listMacros.SelectedIndices.Count == 1)
             {
                 var index = listMacros.SelectedIndices[0];
                 listMacros.Items.RemoveAt(index);
@@ -528,7 +528,7 @@ namespace MagicCube5D
 
         private void ListMacros_AfterLabelEdit(object sender, LabelEditEventArgs e)
         {
-            if (1 == listMacros.SelectedIndices.Count)
+            if (listMacros.SelectedIndices.Count == 1)
             {
                 var index = listMacros.SelectedIndices[0];
                 if (e.Label != null)
@@ -540,7 +540,7 @@ namespace MagicCube5D
 
         private void ListMacros_DoubleClick(object sender, EventArgs e)
         {
-            if (1 == listMacros.SelectedIndices.Count)
+            if (listMacros.SelectedIndices.Count == 1)
             {
                 var index = listMacros.SelectedIndices[0];
                 cube.ExecuteMacro(index, ControlDown());

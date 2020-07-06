@@ -160,7 +160,7 @@ void CLoader::saveTwists(System::IO::StreamWriter ^ sw,
     int count = 0;
     for (uint t = 0; t < twists.size(); t++) {
         String ^ twistString =
-                -1 == twists[t].m_rotationFace
+                twists[t].m_rotationFace == -1
                         ? "v"
                         : System::Convert::ToString(twists[t].m_rotationFace);
         twistString += System::Convert::ToString(twists[t].m_rotationAxis1) +
@@ -229,7 +229,7 @@ bool CLoader::loadTwists(System::IO::StreamReader ^ sr, std::vector<STwist>& twi
 #define FILTER "MagicCube5D log files (*.log)|*.log|All files (*.*)|*.*"
 
 System::String ^ CLoader::getSaveFileName(bool forcePrompt) {
-    if (0 == m_filename.length() || forcePrompt) {
+    if (m_filename.length() == 0 || forcePrompt) {
         System::Windows::Forms::SaveFileDialog ^ dlg =
                 gcnew System::Windows::Forms::SaveFileDialog();
         dlg->AddExtension = true;

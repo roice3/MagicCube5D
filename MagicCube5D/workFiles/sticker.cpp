@@ -27,6 +27,6 @@ bool SSticker::operator!=(const SSticker& rhs) const { return (!(operator==(rhs)
 int SSticker::getNumColors() const {
     int numColors = 0;
     for (int i = 0; i < 5; i++)
-        if (1 == m_cubie.m_components[i] || -1 == m_cubie.m_components[i]) numColors++;
+        if (m_cubie.m_components[i] == 1 || m_cubie.m_components[i] == -1) numColors++;
     return numColors;
 }
