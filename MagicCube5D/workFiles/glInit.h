@@ -1,6 +1,8 @@
 #pragma once
 #pragma managed(push, off)
 
+#include <stdafx.h>
+
 
 class CGlInit
 {

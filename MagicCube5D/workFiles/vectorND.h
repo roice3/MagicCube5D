@@ -2,6 +2,7 @@
 
 #pragma managed(push, off)
 
+#include <stdafx.h>
 #include <vector>
 #include <float.h>
 #include "helper.h"
