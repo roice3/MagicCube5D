@@ -2,9 +2,9 @@
 
 #pragma managed(push, off)
 
-#include <float.h>
 #include <stdafx.h>
 
+#include <cmath>
 #include <vector>
 
 #include "helper.h"
@@ -35,9 +35,8 @@ typedef unsigned int uint;
     return (*this);
 
 inline bool isNaN(double value) {
-    int floatType = _fpclass(value);
-    return floatType == _FPCLASS_SNAN || floatType == _FPCLASS_QNAN ||
-           floatType == _FPCLASS_NINF || floatType == _FPCLASS_PINF;
+    int floatType = std::fpclassify(value);
+    return floatType == FP_INFINITE || floatType == FP_NAN;
 }
 
 template <int nSize>
