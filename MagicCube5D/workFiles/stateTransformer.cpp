@@ -596,7 +596,7 @@ void CStateTransformer::findCubies(const std::vector<SSticker>& state,
     }
 
     // The candidates with the right number of colors are the ones we want.
-    // Add them to the ouptut.
+    // Add them to the output.
     for (it = candidates.begin(); it != candidates.end(); ++it) {
         if (it->second != numColors) continue;
 

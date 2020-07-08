@@ -90,7 +90,7 @@ private:
     // The main frame of our UI
     MainFrame ^ m_frame;
 
-    // Additonal managed component bits.
+    // Additional managed component bits.
     System::ComponentModel::IContainer ^ m_components;
     Timer ^ m_timer;
 

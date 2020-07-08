@@ -39,13 +39,13 @@ void CRenderer::renderScene(int width, int height, bool stereo, bool registered)
     // Smooth shading.
     glShadeModel(GL_SMOOTH);
 
-    // Anitaliasing.
+    // Antialiasing.
     // Stereo doesn't like this.
     if (!stereo) {
         glEnable(GL_LINE_SMOOTH);
         glEnable(GL_POINT_SMOOTH);
 
-        // glEnable( GL_POLYGON_SMOOTH );	// Mades the polygons look bad (GeForce4
+        // glEnable( GL_POLYGON_SMOOTH );	// Makes the polygons look bad (GeForce4
         // implemented this).
     }
 
@@ -84,7 +84,7 @@ void CRenderer::setupProjection(int cx, int cy) {
     // Calculate the clipping plane based on the current view.
     //
     // This may need to be revisited now that there are many different viewing
-    // possibilities. Seem ok though.
+    // possibilities. Seems ok though.
     double abs = m_viewLookfrom.abs();
     GLdouble clipNear = 0.01f;         // NEAR_CLIPPING_PLANE;
     GLdouble clipFar = abs + 1000.0f;  // abs + ENV_OUTER_STAR_LIMITS;

@@ -172,7 +172,7 @@ public:
         assert(dimension <= Size);
         int index = dimension - 1;
 
-        // Required for calulations.
+        // Required for calculations.
         double denominator = distance - m_components[index];
         if (IS_ZERO(denominator)) denominator = 0;
 

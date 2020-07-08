@@ -128,7 +128,7 @@ namespace MagicCube5D
             menuPuzzle6.Tag = 6;
             menuPuzzle7.Tag = 7;
 
-            // setup tags for hilight items.
+            // setup tags for highlight items.
             menuHilight1.Tag = 1;
             menuHilight2.Tag = 2;
             menuHilight3.Tag = 3;
@@ -291,7 +291,7 @@ namespace MagicCube5D
             menuPuzzle3.Checked = true;
             cube.EnableRedraw = true;
 
-            // load all of our our macros.
+            // load all of our macros.
             foreach (var s in cube.GetMacroNames())
             {
                 _ = listMacros.Items.Add(s);
